@@ -1,1 +1,2 @@
-https://storage.googleapis.com/pub-tools-public-publication-data/pdf/ce44cbda9fdc061050c1d2a5dec0270874a9dc85.pdf
+1.Tracking ransomware end to end- Elie Bursztein 
+	# A paper which shows a team of google did most of my work two years ago #

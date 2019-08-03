@@ -1,1 +1,2 @@
 # Ransomware-project
+This project aims to analyse ransomware throughout the years, the profit hackers made from attacks of the sort and simulate the way modern ransomware spreads in a simulated network

@@ -1,4 +1,16 @@
 1.Tracking ransomware end to end- Elie Bursztein 
 	https://elie.net/blog/security/how-to-trace-ransomware-payments-end-to-end/
-	# A paper which shows a team of google did most of my work two years ago #
-2.
+	#A paper which shows a team of google did most of my work two years ago#
+
+2.Cutting the Gordian Knot: A Look Under the Hood of Ransomware Attacks
+	#Some techincal stuff I'm not sure I'll need#
+
+3.Ransomware payments in the bitcoin ecosystem- Bernhard Haslhofer
+	https://arxiv.org/pdf/1804.04080.pdf
+	#The research from which originates the data found#
+
+	https://github.com/behas/ransomware-dataset
+	#The actual dataset origin#
+
+4.Framing Dependencies Introduced by Underground Commoditization- Elie again
+	#The broader picture of underground economics with a lot of useful data#

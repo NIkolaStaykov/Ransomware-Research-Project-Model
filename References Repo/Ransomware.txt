@@ -14,3 +14,11 @@
 
 4.Framing Dependencies Introduced by Underground Commoditization- Elie again
 	#The broader picture of underground economics with a lot of useful data#
+
+5.https://www.priceintelligently.com/blog/willingness-to-pay
+	#Willingness to pay site#
+
+6.Dynamic Pricing for Ransomware- Tristan Caulfield, Christos Ioannidis, and David Pym
+	http://www0.cs.ucl.ac.uk/staff/D.Pym/ransomware-dynamic.pdf
+	#Something that looks waay too promising#
+	

@@ -1,3 +1,4 @@
 *.csv
 /LaTeX
 !/LaTeX/Modeling-Ransomware.pdf
+!/LaTeX/Modeling-Ransomware.tex

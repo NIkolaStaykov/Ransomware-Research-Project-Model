@@ -1,24 +1,55 @@
-1.Tracking ransomware end to end- Elie Bursztein 
+kk1.Tracking ransomware end to end- Elie Bursztein 
 	https://elie.net/blog/security/how-to-trace-ransomware-payments-end-to-end/
 	#A paper which shows a team of google did most of my work two years ago#
 
-2.Cutting the Gordian Knot: A Look Under the Hood of Ransomware Attacks
+kk2.Cutting the Gordian Knot: A Look Under the Hood of Ransomware Attacks
 	#Some techincal stuff I'm not sure I'll need#
 
-3.Ransomware payments in the bitcoin ecosystem- Bernhard Haslhofer
+kk3.Ransomware payments in the bitcoin ecosystem- Bernhard Haslhofer
 	https://arxiv.org/pdf/1804.04080.pdf
 	#The research from which originates the data found#
 
 	https://github.com/behas/ransomware-dataset
 	#The actual dataset origin#
 
-4.Framing Dependencies Introduced by Underground Commoditization- Elie again
+kk4.Framing Dependencies Introduced by Underground Commoditization- Elie again
 	#The broader picture of underground economics with a lot of useful data#
 
 5.https://www.priceintelligently.com/blog/willingness-to-pay
 	#Willingness to pay site#
 
-6.Dynamic Pricing for Ransomware- Tristan Caulfield, Christos Ioannidis, and David Pym
+kk6.Dynamic Pricing for Ransomware- Tristan Caulfield, Christos Ioannidis, and David Pym
 	http://www0.cs.ucl.ac.uk/staff/D.Pym/ransomware-dynamic.pdf
 	#Something that looks waay too promising#
+
+kk7.To pay or not: game theoretic models of ransomware- Edward Cartwright, Julio Hernandez-Castro and Anna Stepanova
+	https://weis2018.econinfosec.org/wp-content/uploads/sites/5/2018/05/WEIS_2018_paper_25.pdf
+	#Considers the situation as a game of bargaining#
+
+kk8.Bayesian Dynamic Pricing Policies: Learning and Earning Under a Binary Prior Distribution- J. Michael Harrison, N. Bora Keskin and Assaf Zeevi
+	http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.624.998&rep=rep1&type=pdf
+	#Does what is says (probably)#
+
+kk9.Economic Analysis of Ransomware- Julio Hernandez-Castro, Edward Cartwright and Anna Stepanova
+	https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2937641
+	#EU-funded research on exactly that#
+
+kk10.IBM study: Businesses more likely to pay ransomware than consumers
+	https://www-03.ibm.com/press/us/en/pressrelease/51230.wss
+	#An IBM study from 2016 on what types of targets pay#
+
+kk11.On the Economics of Ransomware In: Decision and Game Theory for Security- Aron Laszka, Sadegh Farhang and Jens Grossklags
+	http://aronlaszka.com/papers/laszka2017economics.pdf
+	#A Springer book covered it too#
+
+kk12.Pricing and learning with uncertain demand- Miguel Sousa Lobo and Stephen Boyd
+	https://web.stanford.edu/~boyd/papers/pdf/pric_learn_unc_dem.pdf
+	#Actually helpfull for the exact model, universal theory#
+
+kk13.A two-armed bandit theory of market pricing- Michael Rothschild
+	https://www.win.tue.nl/~sem/2WB12/Rothschild74.pdf
+	#Another model, hope i get to read it#
+
+kk14.Symantec. 2018 Internet Security Threat Report: Executive Summary
+	https://www.symantec.com/content/dam/symantec/docs/reports/istr-23-executive-summary-en.pdf
 	

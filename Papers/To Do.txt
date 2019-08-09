@@ -22,7 +22,7 @@ THE BASIC ONE:
 Coeff's needed:
 1. Likelihood of people paying the ransom
 2. Ransom estimated value
-3. Estimated file value
+3. Estimated file value ~ (1000, 300)
 
 Things to work on:
 1. Botnet traffic/Ransomware activity

@@ -28,3 +28,9 @@ Things to work on:
 1. Botnet traffic/Ransomware activity
 2. Profit/Ransom correlations
 3. Damage calculation
+
+New ones:
+1. Patch distribution
+2. Backup variable/ time
+3. New data after 2017
+4. Set a distribution manually (demand curve, wtp) and build a model to try to find out what it is

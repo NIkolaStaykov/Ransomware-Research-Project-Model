@@ -1,14 +1,10 @@
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-import scipy.stats as stats
+from Plots import normal_distribution
 import statistics as st
 
 class Simulation:
-
-    #Library for the prices, corresponding to a given ransom
-    #sample_prices = {}
 
     def __init__(self, ppl_sample_size, mean, st_div, number_of_points):
         self.ppl_sample_size = ppl_sample_size
@@ -25,7 +21,6 @@ class Simulation:
     #Aproximates the point in the demand curve of a given price
     def fit(self, price_to_fit):
         ppl = 0
-        #self.sample_prices[str(price_to_fit)] = []
 
         ###########
         for i in range(0, self.ppl_sample_size):
@@ -33,8 +28,6 @@ class Simulation:
 
             if sample_point > price_to_fit:
                 ppl += 1
-
-            #self.sample_prices[str(price_to_fit)].append(sample_point)
         ############
 
         return ppl/self.ppl_sample_size
@@ -47,7 +40,8 @@ class Simulation:
         for i in range(self.number_of_points):
             demand.append(self.fit(price_step*i))
             price.append(price_step * i)
-        plt.scatter(price, demand, color="green")
+        plt.scatter(price, demand, color="#86E9D1")
+
     #Error function to compare data with the actual plot
     def error_f(self):
         error = 0
@@ -56,6 +50,7 @@ class Simulation:
             error += (self.fit(price_step * i) - self.demand_function(price_step*i))**2
         error = error/self.number_of_points
         return(error)
+
     #Computes the demand function for the given parameters
     def demand_function(self, price):
         z_score = np.sign(price-self.mean)*(price-self.mean)/self.st_div
@@ -69,55 +64,41 @@ class Simulation:
     def plot_demand_math(self):
         price_math = []
         demand_math = []
-        max_price = self.mean + 3*self.st_div
+        max_price = math.floor(self.mean + 3*self.st_div)
         for i in range(10*max_price):
             price_math.append(i / 10)
             demand_math.append(self.demand_function(i / 10))
-        plt.plot(price_math, demand_math, color="red")
+        plt.xlabel("Price")
+        plt.ylabel("Demand")
+        plt.plot(price_math, demand_math, color="#097A5E")
 
-    #Calculating costs
-class Costs:
-    def __init__(self, ppl_sample_size, number_of_points):
-        self.ppl_sample_size = ppl_sample_size
-        self.number_of_points = number_of_points
-    def spam_costs(self, spam_price):
-        return(self.ppl_sample_size * spam_price)
-    def time_costs(self, price_function):
-        price = price_function(self.number_of_points)
-        return(price)
+# Calculating errors
+def plotting_errors(sim, sample_step, points_count):
+    global mean
+    error_array = []
+    error_mean = []
+    sample_sizes = []
+    for i in range(points_count):
+        sim_it = Simulation(sim.ppl_sample_size + sample_step*i, sim.mean, sim.st_div, sim.number_of_points)
+        for n in range(10):
+            error = sim_it.error_f()
+            error_array.append(error)
+        mean = st.mean(error_array)
+        error_array = []
+        error_mean.append(mean)
+        sample_sizes.append(sim.ppl_sample_size + sample_step*i)
+    plt.xlabel("Sample size")
+    plt.ylabel("Error")
+    plt.plot(sample_sizes, error_mean)
 
+sim = Simulation(100, 500, 150, 200)
+#plotting_errors(sim, 30, 30)
 
-#Calculating errors
-error_array = []
-error_mean = []
-sample_sizes = []
-# for i in range(12):
-#
-#     sim = Simulation(400 + 50*i, 500, 150, 200)
-#     for n in range(10):
-#         error = 10000 * sim.error_f()
-#         error_array.append(error)
-#     mean = st.mean(error_array)
-#     error_array = []
-#     error_mean.append(mean)
-#     sample_sizes.append(400 + 50*i)
-#
-# plt.plot(sample_sizes, error_mean)
-#
-# sim = Simulation(200, 500, 200, 100)
-# sim.plot_demand_exp()
+norm = normal_distribution(500, 150, -2/3)
+norm.plot_integral()
 # sim.plot_demand_math()
-#
-# plt.show()
+# price = sim.mean + sim.st_div * norm.z_score
+# point_demand = sim.demand_function(price)
+# plt.plot(price, point_demand, color = "#BB0D0D", marker = "o")
 
-def normal_distribution(mean, sd):
-    x = np.linspace(mean - 2/3*sd, mean + 3*sd, 100)
-    frame = plt.fill_between(x, stats.norm.pdf(x, mean, sd), color="#0698B0")
-    frame.axes.get_yaxis().set_visible(False)
-    x = np.linspace(0, mean + 3*sd,100)
-    plt.plot(x, stats.norm.pdf(x, mean, sd), color="k")
-    const = mean - 2/3*sd
-    plt.xlabel("Price")
-
-normal_distribution(500, 150)
 plt.show()

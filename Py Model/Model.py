@@ -1,8 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-from Plots import normal_distribution
+from Plots import Normal_distribution
 import statistics as st
+
 
 class Simulation:
 
@@ -13,13 +14,16 @@ class Simulation:
         self.mean = mean
         self.st_div = st_div
 
-    #Takes out a random WTP value from the distribution
+    # Takes out a random WTP value from the distribution
+
     def sample_point(self, mean, st_div):
         sample = np.random.normal(mean, st_div, 1)
         return sample[0]
 
-    #Aproximates the point in the demand curve of a given price
+    # Aproximates the point in the demand curve of a given price
+
     def fit(self, price_to_fit):
+
         ppl = 0
 
         ###########
@@ -32,7 +36,7 @@ class Simulation:
 
         return ppl/self.ppl_sample_size
 
-    #Plotting the experimental data
+    # Plotting the experimental data
     def plot_demand_exp(self):
         demand = []
         price = []
@@ -42,16 +46,16 @@ class Simulation:
             price.append(price_step * i)
         plt.scatter(price, demand, color="#86E9D1")
 
-    #Error function to compare data with the actual plot
+    # Error function to compare data with the actual plot
     def error_f(self):
         error = 0
         price_step = math.floor((self.mean + 3 * self.st_div) / self.number_of_points)
         for i in range(self.number_of_points):
             error += (self.fit(price_step * i) - self.demand_function(price_step*i))**2
         error = error/self.number_of_points
-        return(error)
+        return error
 
-    #Computes the demand function for the given parameters
+    # Computes the demand function for the given parameters
     def demand_function(self, price):
         z_score = np.sign(price-self.mean)*(price-self.mean)/self.st_div
         if price > self.mean:
@@ -72,9 +76,9 @@ class Simulation:
         plt.ylabel("Demand")
         plt.plot(price_math, demand_math, color="#097A5E")
 
+
 # Calculating errors
 def plotting_errors(sim, sample_step, points_count):
-    global mean
     error_array = []
     error_mean = []
     sample_sizes = []
@@ -91,11 +95,10 @@ def plotting_errors(sim, sample_step, points_count):
     plt.ylabel("Error")
     plt.plot(sample_sizes, error_mean)
 
-sim = Simulation(100, 500, 150, 200)
-#plotting_errors(sim, 30, 30)
 
-norm = normal_distribution(500, 150, -2/3)
-norm.plot_integral()
+sim = Simulation(20, 500, 150, 200)
+plotting_errors(sim, 10, 99)
+
 # sim.plot_demand_math()
 # price = sim.mean + sim.st_div * norm.z_score
 # point_demand = sim.demand_function(price)

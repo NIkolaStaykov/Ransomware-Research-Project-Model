@@ -1,5 +1,5 @@
 *.csv
 /LaTeX
-!/LaTeX/Modeling-Ransomware.pdf
-!/LaTeX/Modeling-Ransomware.tex
+!/LaTeX/Ransomware-research-project.pdf
+!/LaTeX/Ransomware-research-project.tex
 /Py Model/.idea

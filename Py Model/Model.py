@@ -123,14 +123,11 @@ left = sim.plot_demand_math()
 right = sim.plot_revenue()
 ax2 = ax1.twinx()
 ax1.plot(left[0], left[1], color="#097A5E")
-ax2.plot(left[0], right[1], color="#A02A2A", linestyle='--')
+ax2.plot(right[1], right[1], color="#A02A2A", linestyle='--')
 
 ax1.set_xlabel('Price')
 ax1.set_ylabel('Demand', color="#097A5E")
 ax2.set_ylabel('Revenue', color="#A02A2A")
-# sim.plot_demand_math()
-# price = sim.mean + sim.st_div * norm.z_score
-# point_demand = sim.demand_function(price)
-# plt.plot(price, point_demand, color = "#BB0D0D", marker = "o")
+ax2.tick_params(axis = "y")
 
 plt.show()

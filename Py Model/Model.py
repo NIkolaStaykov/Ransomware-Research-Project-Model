@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import statistics as st
+from Plots import Normal_distribution
 
 
 class Simulation:
@@ -115,19 +116,22 @@ def plotting_errors(sim, sample_step, points_count):
     plt.plot(sample_sizes, error_mean)
 
 
-sim = Simulation(1, 500, 150, 3)
+# sim = Simulation(1, 500, 150, 3)
+#
+# fig, ax1 = plt.subplots()
+#
+# left = sim.plot_demand_math()
+# right = sim.plot_revenue()
+# ax2 = ax1.twinx()
+# ax1.plot(left[0], left[1], color="#097A5E")
+# ax2.plot(right[1], right[1], color="#A02A2A", linestyle='--')
+#
+# ax1.set_xlabel('Price')
+# ax1.set_ylabel('Demand', color="#097A5E")
+# ax2.set_ylabel('Revenue', color="#A02A2A")
+# ax2.tick_params(axis = "y")
 
-fig, ax1 = plt.subplots()
-
-left = sim.plot_demand_math()
-right = sim.plot_revenue()
-ax2 = ax1.twinx()
-ax1.plot(left[0], left[1], color="#097A5E")
-ax2.plot(right[1], right[1], color="#A02A2A", linestyle='--')
-
-ax1.set_xlabel('Price')
-ax1.set_ylabel('Demand', color="#097A5E")
-ax2.set_ylabel('Revenue', color="#A02A2A")
-ax2.tick_params(axis = "y")
+norm = Normal_distribution(6, 2, 2)
+norm.plot_clean()
 
 plt.show()

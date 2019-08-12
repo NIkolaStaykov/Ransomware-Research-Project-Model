@@ -21,6 +21,10 @@
 \usepackage{hyperref}
 \usepackage {tikz}
 	\usetikzlibrary {positioning}
+	
+\graphicspath{
+	{Graphics/}
+}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
@@ -64,15 +68,35 @@
 \newpage
 \section{Mathematical model}
 	\subsection{Mathematical preliminaries}
+		\begin{definition}[Normal distribution]
+			Denoted with $N(\mu, \sigma)$, this is a type of continuous distribution, where:
+			\begin{itemize}
+				\item $\mu$ is the mean (in this case also mode and median)
+				\item $\sigma$ is the standard deviation
+				\item $\sigma^{2}$ is the variance
+				
+			\end{itemize}
+			Its probability density function is
+				$$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$$
+		\end{definition}
+	
+			The graph of this function forms a curve, often called informally bell-curve. It has maximum $(x,f(x))$ at $(\mu, \frac{1}{\sigma\sqrt{2\pi}})$:
+			\begin{center}
+			\includegraphics[width=0.5\textwidth]{Graphics/Normal_clean}
+			\end{center}
+		
+		\begin{definition}[Standard value (aka Z-score)] Consider a normal distribution $N(\mu, \sigma)$. The standard value of a given $x$ is computed by $\dfrac{x-\mu}{\sigma}$ and evaluates how many standard deviations away from the mean the given value is.
+			
+		\end{definition}
 	\subsection{The approach}
 		This model describes the spread and calculates the optimal ransom for a ransomware attack, distributed exclusively via botnets, without the key component of spreading to every computer in the network. This variant of the attack is relatively cheap to initiate, but has low efficiency.\par
 		We will treat the act of decrypting the data of a given computer as a service and the ransom, respectively, will be the price of the service. The parameters and distributions in this model will surely differ from standard market\par
-		The model starts off with a mathematically described distribution for the willingness to pay (WTP) of the people. Even though we define it by ourselves, by putting ourselves in the place of the malware authors, we can try to find put what the distribution is by examining samples of people and how they respond to a given price.
+		Consider the distribution for the willingness to pay (WTP) a given target group. By putting ourselves in the place of the malware authors, we can try to find out what the distribution is by examining samples of people and how they respond to a given price. This tests, however, cost us valuable time since the awareness of people rises constantly. So the question is, how many and how big test should we conduct in order to model the distribution with reasonable error and in the same time not lose too much time?
 	\subsection{The model}
 \section{Results}
 \section{Further development}
 \section*{Acknowledgments}
 \nocite{*}
-\bibliographystyle{ieeetr}
+\bibliographystyle{unsrt}
 \bibliography{Bibliography}
 \end{document}

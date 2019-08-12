@@ -18,4 +18,9 @@ class Normal_distribution:
         frame.axes.get_yaxis().set_visible(False)
         x = np.linspace(0, self.mean + 3 * self.sd,100)
         plt.plot(x, stats.norm.pdf(x, self.mean, self.sd), color="k")
-
+    def plot_clean(self):
+        fig, ax = plt.subplots(1)
+        x = np.linspace(self.mean - 3 * self.sd, self.mean + 3 * self.sd, 100)
+        ax.set_xlabel('X')
+        ax.set_ylabel('Y', color="#0698B0")
+        ax.plot(x, stats.norm.pdf(x, self.mean, self.sd), color="#0698B0")

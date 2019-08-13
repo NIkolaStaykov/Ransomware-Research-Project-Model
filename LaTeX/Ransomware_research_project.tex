@@ -4,7 +4,7 @@
 \usepackage[english]{babel}
 
 %% Sets page size and margins
-\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
 %% Useful packages
 \usepackage{amsmath, amssymb, amsthm,calc,mathabx}
@@ -28,14 +28,17 @@
 }
 
 \newtheorem{theorem}{Theorem}
-\newtheorem{definition}{Definition}
+
 \newtheorem{lemma}{Lemma}
 \newtheorem{prop}{Property}
 \newtheorem*{remark}{Remark}
 
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
 \setlength{\columnsep}{1cm}
 \setlength{\parindent}{1em}
-\setlength{\parskip}{1em}
+
 \begin{document}
 \begin{titlepage}
 	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
@@ -65,53 +68,54 @@
 \end{abstract}
 
 \section{Introduction}
-		Malware first appeared in 1989 in the form of the AIDS Troyan, aka PC Cyborg. It was not hard to decrypt after the files but this case set the ground for a lot of the modern threats. With the coming of the Internet age, ransomware returned with new power, 
+		Malware first appeared in 1989 in the form of the AIDS Troyan, aka PC Cyborg.  The AIDS Trojan was pretty easy to overcome as it used simple symmetric cryptography and tools were soon available to decrypt the files, but this case set the ground for a lot of the modern threats. With the coming of the Internet age, ransomware returned with new power, namely with the Archiveus Trojan and GPcode from 2006. Another turning point in the history of malware was the invention of bitcoin, and crypto-currencies as a whole, for several reasons, a few of them being anonymity, the transactions are fully automatable and the transactions are irrefutable\cite{huang2018tracking}.\par
+		In the recent years there have been some attempts to model the malware market. In \cite{caulfielddynamic}, the authors have created a theoretical model, taking into consideration the number of users, who have backups, as well as other factors such as information spread and reliability of the ransomware.\par                 
+		In \cite{cartwright2018pay} a different approach has been explored, considering the possibility for bargaining and respectively a game between the victim and the criminals. This paper focuses on game theory and combinatorics.\par
+		There has also been considerable amount of effort dedicated to tracking the ransomware payments in the blockchain, as all of them are public. As a result, there is a public data record of such payments, provided by \cite{paquet2019ransomware} and in \cite{thomas2015framing} many one can observe many data-based conclusions not only concerning ransomware, but also the whole black market.\par
+		In this paper, the model is based on the one described in \cite{caulfielddynamic}, but focuses on optimizing different parameters, unexplored in the aforementioned research.
 \newpage
-\section{Mathematical model}
-	\subsection{Mathematical preliminaries}
-		\begin{definition}[Normal distribution]
-			\label{def:def1}
-			Denoted with $N(\mu, \sigma)$, this is a type of continuous distribution, where:
-			\begin{itemize}
-				\item $\mu$ is the mean (in this case also mode and median)
-				\item $\sigma$ is the standard deviation
-				\item $\sigma^{2}$ is the variance
-				
-			\end{itemize}
+	\section{Preliminaries}
+		\begin{definition}
+			\label{def:normdist}
+			\emph{Normal Distribution}, denoted by $N(\mu, \sigma)$, is a type of continuous distribution, such that $\mu$, $\sigma$ and $\sigma^{2}$ denote the mean, the standard deviation and the variance, respectively.
 		\end{definition}
 	
-		The graph of this function forms a curve, often called informally bell curve. It has maximum $(x,f(x))$ at $(\mu, \frac{1}{\sigma\sqrt{2\pi}})$:
+		The graph of this function forms a curve, often called informally bell curve. It has maximum $(x,f(x))$ at $\left(\mu, \dfrac{1}{\sigma\sqrt{2\pi}}\right)$:
 		\begin{center}
 			\includegraphics[width=0.6\textwidth]{Normal_clean}
 		\end{center}
 		
-		\begin{definition}[Standard value (aka Z-score)]
+		\begin{definition}
 			\label{def:def2}
-			Consider a normal distribution $N(\mu, \sigma)$. The standard value of a given $x$ is computed by $\dfrac{x-\mu}{\sigma}$ and evaluates how many standard deviations away from the mean the given value is.
+			Consider a normal distribution $N(\mu, \sigma)$. The \emph{standard value}, or the \emph{Z-score}, of a given $x$ evaluates how many standard deviations away from the mean the given value is. It is computed by $\dfrac{x-\mu}{\sigma}$.
 		\end{definition}
 	
-		\begin{definition}[Probability density function]
+		\begin{definition}
+			\label{def:cumulative}
+			$$F_{X}(x)=\mathbb{P}(x\leq X)$$
+		\end{definition}
+	
+		\begin{definition}
 			\label{def:def3}
-			For a continuous random variable $x$, a probability density function describes the probability a random variable $x$ to appear in any interval. Formally it is defined by:
+			The \emph{Probability density function} of a continuous random variable $x$, a probability density function describes the probability a random variable $x$ to appear in any interval. Formally it is defined by:
 			\begin{align*}
-				&P(x < X \leq x+\Delta)=F_X(x+\Delta)-F_X(x)\\
+				&\mathbb{P}(x < X \leq x+\Delta)=F_X(x+\Delta)-F_X(x)\\
 				&f_X(x)=\lim_{\Delta \rightarrow 0} \frac{F_X(x+\Delta)-F_X(x)}{\Delta}			
 			\end{align*}
 		\end{definition}
 	
 		\begin{definition}[Error function] The error function is encountered in integrating the normal distribution, it takes z-score as a parameter:
-			$$erf(z) \dfrac{2}{\sqrt{\pi}}\int_{0}^{z}e^{-t^{2}}dt$$
+			$$\operatorname{erf}(z)=\dfrac{2}{\sqrt{\pi}}\int_{0}^{z}e^{-t^{2}}dt$$
 		\end{definition}
 	
-	\subsection{The approach}
-		This model describes the spread and calculates the optimal ransom for a ransomware attack, distributed exclusively via botnets, without the key component of spreading to every computer in the network. This variant of the attack is relatively cheap to initiate, but has low efficiency.\par
-		We will treat the act of decrypting the data of a given computer as a service and the ransom, respectively, will be the price of the service. The parameters and distributions in this model will surely differ from standard market\par
-		Consider the distribution for the willingness to pay (WTP) of a given target group. This is the maximum price someone would pay for their data. By putting ourselves in the place of the malware authors, we can try to find out what the distribution is by examining samples of people and how they respond to a given price. This tests, however, cost us valuable time since the awareness of people rises constantly. So the question is, how many and how big test should we conduct in order to model the distribution with reasonable error and in the same time not lose too much time?\par
-		For a given size of the sample group, we calculate the error of a set of sample "customers" from the mathematically described function of the demand curve, derived from the distribution of WTP. Starting off low, we gradually expand the sample group size, estimating the expected error, via a Least squares approach, at each step.
-	\subsection{The model}
-		We assume people's data value follows a normal distribution and link it to a random variable $p\sim N(500, 150)$. The probability density function(PDF)[\ref{def:def3}] of a normal distribution $N(\mu, \sigma)$[\ref{def:def1}] is: $$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$$\par\noindent
-		In order to calculate the demand function(as a probability) from the PDF(denoted with $f(k)$) for a given price $k$, we need to calculate:
-		$$\int_{k}^{\infty}f(x)d(x)$$
+	\section{Approach}
+		This model describes the spreading of a ransomware virus. It calculates the optimal ransom for a ransomware attack, distributed exclusively via botnets, without the key component of spreading to every computer in the network. This variant of the attack is relatively cheap to initiate, but has low efficiency.	We treat the act of decrypting the data of a given computer as a service and the ransom as the service price, respectively. \par
+		Consider the distribution of the willingness to pay (WTP) of a given target group. This is the maximum price someone would pay for their data. By putting ourselves in the place of the malware authors, we try to find what the distribution is by examining samples of people and how they respond to a given price. This tests, however, cost us valuable time since the awareness of people rises constantly. We strive to determine how many and how big tests should we conduct in order to model the distribution with reasonable error and in the same time not lose too much time?\par
+		For a given size of the sample group, we calculate the error of a set of sample `customers' from the mathematically described function of the demand curve, derived from the distribution of WTP. Starting off low, we gradually expand the sample group size, estimating the expected error, via the Least Squares Approach, at each step.
+	\section{Model}
+		We assume people's data value follows a normal distribution and link it to a random variable $p\sim N(500, 150)$. The probability density function (PDF) of a normal distribution $N(\mu, \sigma)$ is $$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}.$$\par\noindent
+		In order to calculate the demand function $f(k)$ from the PDF for a given price $k$, we need to calculate
+		$$\int_{k}^{\infty}f(x)\operatorname{d} x.$$
 		\begin{figure}[H]
 			\begin{minipage}{0.48\textwidth}
 				\centering
@@ -124,37 +128,49 @@
 				\caption{Price vs Demand}\label{Fig:Data2}
 			\end{minipage}
 		\end{figure}\par\noindent
-		We note that the integral must indeed be calculated up to infinity, but after $k$ reaches $\mu+3\sigma$, the resulting integral is negligibly small. Doing this for the whole probability distribution function gives us the demand curve with respect to what percent of the people would pay. Let us denote the demand curve function with $F(x)$:
+		We note that the integral must be calculated up to infinity, but after $k$ reaches $\mu+3\sigma$, the resulting integral is negligibly small. Doing this for the whole probability distribution function gives us the demand curve with respect to what percent of the people would pay. Let us denote the demand curve function with $F(x)$:
 		$$
 		F(x)=
 		\begin{cases}
-			\dfrac{1}{2}\left (1-Erf\left (\dfrac{z}{\sqrt{2}}\right )\right ) \text{if } x>\mu,\\
+			\dfrac{1}{2}\left (1-\operatorname{erf}\left (\dfrac{z}{\sqrt{2}}\right )\right ) \text{if } x>\mu,\\
 			\\
-			\dfrac{1}{2}\left (1+Erf\left (\dfrac{z}{\sqrt{2}}\right )\right ) \text{if } x<\mu
+			\dfrac{1}{2}\left (1+\operatorname{erf}\left (\dfrac{z}{\sqrt{2}}\right )\right ) \text{if } x<\mu.
 		\end{cases}
-		$$
-		With that our mathematical function is well-defined and we can continue to examine experimental data.\par
-		The parameter we aim to optimize is the number of people each sample group consists of. Knowing the actual mathematical function we aim to describe gives us the possibility to evaluate the errors from the experimental data with maximum accuracy.
+		$$\par
+		We aim to optimize the number of people each sample group consists of. Knowing the actual mathematical function we aim to describe gives us the possibility to evaluate the errors from the experimental data with maximum accuracy.
 		\begin{figure}[H]
 			\begin{minipage}{0.48\textwidth}
 				\centering
 				\includegraphics[width=\linewidth]{Exp_and_math_100}
 				\caption{Sample size 100}\label{Fig:Data3}
-			\end{minipage}$\longrightarrow$
+			\end{minipage}\hfill
 			\begin{minipage}{0.48\textwidth}
 				\centering
 				\includegraphics[width=\linewidth]{Exp_and_math_400}
 				\caption{Sample size 400}\label{Fig:Data4}
 			\end{minipage}
 		\end{figure}\par\noindent
-		Gathering information on the sample size and the corresponding errors, we can plot the changes.
-		\begin{center}
+		By gathering information on the sample size and the corresponding errors, we plot the changes in the error.
+		\begin{figure}[H]
+		\begin{minipage}{1.0\textwidth}
+			\centering
 			\includegraphics[width=0.7\textwidth]{"Error vs sample size 4"}
-		\end{center}
+			\caption{Sample size vs Error}\label{Fig:Data5}
+		\end{minipage}
+		\end{figure}
 				
 \section{Results}
+	Even though is seems as if this model can be of use only to cyber criminals, the author aims to reach a maximum
 \section{Further development}
-\section*{Acknowledgments}
+	The author considers several future development directions for the project, namely:
+	\begin{itemize}
+		\item considering the use of backups and its influence on the WTP distribution
+		\item expanding the model to describe more complex way of distributing the ransomware
+		\item using the results and databases of related studies in order to back the project with real data\cite{paquet2019ransomware}
+		\item Considering a dynamic pricing model
+	\end{itemize}
+\section{Acknowledgments}
+I want to thank my mentor, Yavor Papazov, and Konstantin Delchev for the enormous help with the choice of the research subject and for providing me with all the necessary material to get familiar with the topic, as well as listening to my questions along the whole way. I extend my gratitude towards Victor Velev, Victor Kolev and Stefan Hadzhistoikov for the support I got from them when I needed it the most.
 \nocite{*}
 \bibliographystyle{unsrt}
 \bibliography{Bibliography}

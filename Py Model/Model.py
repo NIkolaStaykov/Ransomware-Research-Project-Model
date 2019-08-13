@@ -100,13 +100,13 @@ class Simulation:
 
 
 # Calculating errors
-def plotting_errors(sim, sample_step, points_count):
+def plotting_errors(simulation, sample_step, points_count):
     error_array = []
     error_mean = []
     sample_sizes = []
     for i in range(points_count):
-        sim_it = Simulation(sim.ppl_sample_size + sample_step * i, sim.mean, sim.st_div, sim.number_of_points,
-                            sim.backup_prob, sim.backup_price)
+        sim_it = Simulation(simulation.ppl_sample_size + sample_step * i, simulation.mean, simulation.st_div,
+                            simulation.number_of_points, simulation.backup_prob, simulation.backup_price)
         for n in range(20):
             error = sim_it.error_f()
             error_array.append(error)

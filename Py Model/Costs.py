@@ -1,3 +1,6 @@
+import numpy as np
+import Backup_function
+
 # Calculating costs
 class Costs:
     def __init__(self, ppl_sample_size, number_of_points):

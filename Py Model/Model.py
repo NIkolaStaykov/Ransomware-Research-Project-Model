@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import statistics as st
-# from Backup_function import willingness_to_pay
+from Backup_function import backup_function
 # from Plots import double_plot
 
 
@@ -31,8 +31,8 @@ class Simulation:
         ###########
         for i in range(0, self.ppl_sample_size):
             sam_point = sample_point(self.mean, self.st_div)
-            # sam_value = willingness_to_pay(sam_point, self.backup_price, self.backup_prob)
-            if sam_point > price_to_fit:
+            sam_value = backup_function(sam_point, self.backup_price, self.backup_prob)
+            if sam_value > price_to_fit:
                 ppl += 1
         ############
 
@@ -46,7 +46,9 @@ class Simulation:
         for i in range(self.number_of_points):
             demand.append(self.fit(price_step * i))
             price.append(price_step * i)
-        plt.scatter(price, demand, color="#86E9D1")
+        # plt.scatter(price, demand, color="#86E9D1")
+        left = [demand, price]
+        return left
 
     # Error function to compare data with the actual plot
     def error_f(self):
@@ -113,15 +115,25 @@ def plotting_errors(simulation, sample_step, points_count):
         mean = st.mean(error_array)
         error_array = []
         error_mean.append(mean)
-        sample_sizes.append(sim.ppl_sample_size + sample_step * i)
+        sample_sizes.append(simulation.ppl_sample_size + sample_step * i)
     plt.xlabel("Sample size")
     plt.ylabel("Error")
     plt.plot(sample_sizes, error_mean)
 
 
-sim = Simulation(400, 900, 450, 200, 50, 0.1)
-sim.plot_demand_math()
-sim.plot_demand_exp()
+profit_means = []
+backup_percentage = []
+for i in range(20):
+    sim = Simulation(200, 900, 350, 150, 0.05*i + 0.04, 50)
+    sth = sim.plot_demand_exp()
+    expected_profit = math.floor(sim.ppl_sample_size * np.mean(np.multiply(sth[0], sth[1])))
+    profit_means.append(expected_profit)
+    backup_percentage.append(5*i + 4)
+sim = Simulation(200, 900, 350, 100, 0.6, 50)
+print(profit_means)
+plt.plot(backup_percentage, profit_means, color="#097A5E")
+plt.xlabel("Backup percentage")
+plt.ylabel("Expected revenue")
 # plotting_errors(sim, 10, 99)
 
 plt.show()

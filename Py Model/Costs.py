@@ -1,17 +1,16 @@
-import numpy as np
-import Backup_function
-
 # Calculating costs
 class Costs:
-    def __init__(self, ppl_sample_size, number_of_points):
+    def __init__(self, ppl_sample_size, number_of_points, spam_price):
         self.ppl_sample_size = ppl_sample_size
         self.number_of_points = number_of_points
+        self.spam_price = spam_price
 
     # Calculating costs for spam campaign
-    def spam_costs(self, spam_price):
-        return self.ppl_sample_size * spam_price
+    def survey_cost(self):
+        return self.ppl_sample_size * self.spam_price
 
-    # Calculating costs for time passed
-    def time_costs(self, price_function):
-        price = price_function(self.number_of_points)
-        return price
+    def spam_cost(self):
+        return self.survey_cost() * self.number_of_points
+
+    def total(self):
+        return self.spam_cost()

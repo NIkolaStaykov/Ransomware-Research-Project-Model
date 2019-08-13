@@ -69,6 +69,7 @@
 \section{Mathematical model}
 	\subsection{Mathematical preliminaries}
 		\begin{definition}[Normal distribution]
+			\label{def:def1}
 			Denoted with $N(\mu, \sigma)$, this is a type of continuous distribution, where:
 			\begin{itemize}
 				\item $\mu$ is the mean (in this case also mode and median)
@@ -76,23 +77,62 @@
 				\item $\sigma^{2}$ is the variance
 				
 			\end{itemize}
-			Its probability density function is
-				$$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$$
 		\end{definition}
 	
-			The graph of this function forms a curve, often called informally bell-curve. It has maximum $(x,f(x))$ at $(\mu, \frac{1}{\sigma\sqrt{2\pi}})$:
-			\begin{center}
-			\includegraphics[width=0.5\textwidth]{Graphics/Normal_clean}
-			\end{center}
+		The graph of this function forms a curve, often called informally bell curve. It has maximum $(x,f(x))$ at $(\mu, \frac{1}{\sigma\sqrt{2\pi}})$:
+		\begin{center}
+			\includegraphics[width=0.6\textwidth]{Normal_clean}
+		\end{center}
 		
-		\begin{definition}[Standard value (aka Z-score)] Consider a normal distribution $N(\mu, \sigma)$. The standard value of a given $x$ is computed by $\dfrac{x-\mu}{\sigma}$ and evaluates how many standard deviations away from the mean the given value is.
-			
+		\begin{definition}[Standard value (aka Z-score)]
+			\label{def:def2}
+			Consider a normal distribution $N(\mu, \sigma)$. The standard value of a given $x$ is computed by $\dfrac{x-\mu}{\sigma}$ and evaluates how many standard deviations away from the mean the given value is.
 		\end{definition}
+	
+		\begin{definition}[Probability density function]
+			\label{def:def3}
+			For a continuous random variable $x$, a probability density function describes the probability a random variable $x$ to appear in any interval. Formally it is defined by:
+			\begin{align*}
+				&P(x < X \leq x+\Delta)=F_X(x+\Delta)-F_X(x)\\
+				&f_X(x)=\lim_{\Delta \rightarrow 0} \frac{F_X(x+\Delta)-F_X(x)}{\Delta}			
+			\end{align*}
+		\end{definition}
+	
+		\begin{definition}[Error function] The error function is encountered in integrating the normal distribution, it takes z-score as a parameter:
+			$$erf(z) \dfrac{2}{\sqrt{\pi}}\int_{0}^{z}e^{-t^{2}}dt$$
+		\end{definition}
+	
 	\subsection{The approach}
 		This model describes the spread and calculates the optimal ransom for a ransomware attack, distributed exclusively via botnets, without the key component of spreading to every computer in the network. This variant of the attack is relatively cheap to initiate, but has low efficiency.\par
 		We will treat the act of decrypting the data of a given computer as a service and the ransom, respectively, will be the price of the service. The parameters and distributions in this model will surely differ from standard market\par
-		Consider the distribution for the willingness to pay (WTP) a given target group. By putting ourselves in the place of the malware authors, we can try to find out what the distribution is by examining samples of people and how they respond to a given price. This tests, however, cost us valuable time since the awareness of people rises constantly. So the question is, how many and how big test should we conduct in order to model the distribution with reasonable error and in the same time not lose too much time?
+		Consider the distribution for the willingness to pay (WTP) of a given target group. This is the maximum price someone would pay for their data. By putting ourselves in the place of the malware authors, we can try to find out what the distribution is by examining samples of people and how they respond to a given price. This tests, however, cost us valuable time since the awareness of people rises constantly. So the question is, how many and how big test should we conduct in order to model the distribution with reasonable error and in the same time not lose too much time?\par
+		For a given size of the sample group, we calculate the error of a set of sample "customers" from the mathematically described function of the demand curve, derived from the distribution of WTP. Starting off low, we gradually expand the sample group size, estimating the expected error, via a Least squares approach, at each step.
 	\subsection{The model}
+		We assume people's data value follows a normal distribution and link it to a random variable $p\sim N(500, 150)$. The probability density function(PDF)\ref{def:def3} of a normal distribution $N(\mu, \sigma)$\ref{def:def1} is: $$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$$\par\noindent
+		In order to calculate the demand function(as a probability) from the PDF(denoted with $f(k)$) for a given price $k$, we need to calculate:
+		$$\int_{k}^{\infty}f(x)d(x)$$
+		\begin{figure}[h]
+			\begin{minipage}{0.48\textwidth}
+				\centering
+				\includegraphics[width=\linewidth]{ND_integral}
+				\caption{PDF}\label{Fig:Data1}
+			\end{minipage}$\longrightarrow$
+			\begin{minipage}{0.48\textwidth}
+				\centering
+				\includegraphics[width=\linewidth]{Sample_point}
+				\caption{Price vs Demand}\label{Fig:Data2}
+			\end{minipage}
+		\end{figure}\par\noindent
+		We note that the integral must indeed be calculated up to infinity, but after $k$ reaches $\mu+3\sigma$, the resulting integral is negligibly small. Doing this for the whole probability distribution function gives us the demand curve with respect to what percent of the people would pay. Let us denote the demand curve function with $F(x)$:
+		$$
+		F(x)=
+		\begin{cases}
+			\dfrac{1}{2}\left (1-Erf\left (\dfrac{z}{\sqrt{2}}\right )\right ) \text{if } x>\mu,\\
+			\\
+			\dfrac{1}{2}\left (1+Erf\left (\dfrac{z}{\sqrt{2}}\right )\right ) \text{if } x<\mu
+		\end{cases}
+		$$
+		
 \section{Results}
 \section{Further development}
 \section*{Acknowledgments}

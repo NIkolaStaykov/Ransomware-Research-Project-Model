@@ -2,35 +2,37 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import statistics as st
-from Plots import Normal_distribution
+# from Backup_function import willingness_to_pay
+# from Plots import double_plot
+
+
+# Takes out a random WTP value from the distribution
+def sample_point(mean, st_div):
+    sample = np.random.normal(mean, st_div, 1)
+    return sample[0]
 
 
 class Simulation:
 
-    def __init__(self, ppl_sample_size, mean, st_div, number_of_points):
+    def __init__(self, ppl_sample_size, mean, st_div, number_of_points, backup_prob, backup_price):
         self.ppl_sample_size = ppl_sample_size
         self.number_of_points = number_of_points
         # Distribution that follows people's WTP values
         self.mean = mean
         self.st_div = st_div
+        self.backup_prob = backup_prob
+        self.backup_price = backup_price
 
-    # Takes out a random WTP value from the distribution
-
-    def sample_point(self, mean, st_div):
-        sample = np.random.normal(mean, st_div, 1)
-        return sample[0]
-
-    # Aproximates the point in the demand curve of a given price
-
+    # Approximates the point in the demand curve of a given price
     def fit(self, price_to_fit):
 
         ppl = 0
 
         ###########
         for i in range(0, self.ppl_sample_size):
-            sample_point = self.sample_point(self.mean, self.st_div)
-
-            if sample_point > price_to_fit:
+            sam_point = sample_point(self.mean, self.st_div)
+            # sam_value = willingness_to_pay(sam_point, self.backup_price, self.backup_prob)
+            if sam_point > price_to_fit:
                 ppl += 1
         ############
 
@@ -103,8 +105,9 @@ def plotting_errors(sim, sample_step, points_count):
     error_mean = []
     sample_sizes = []
     for i in range(points_count):
-        sim_it = Simulation(sim.ppl_sample_size + sample_step * i, sim.mean, sim.st_div, sim.number_of_points)
-        for n in range(10):
+        sim_it = Simulation(sim.ppl_sample_size + sample_step * i, sim.mean, sim.st_div, sim.number_of_points,
+                            sim.backup_prob, sim.backup_price)
+        for n in range(20):
             error = sim_it.error_f()
             error_array.append(error)
         mean = st.mean(error_array)
@@ -116,22 +119,9 @@ def plotting_errors(sim, sample_step, points_count):
     plt.plot(sample_sizes, error_mean)
 
 
-# sim = Simulation(1, 500, 150, 3)
-#
-# fig, ax1 = plt.subplots()
-#
-# left = sim.plot_demand_math()
-# right = sim.plot_revenue()
-# ax2 = ax1.twinx()
-# ax1.plot(left[0], left[1], color="#097A5E")
-# ax2.plot(right[1], right[1], color="#A02A2A", linestyle='--')
-#
-# ax1.set_xlabel('Price')
-# ax1.set_ylabel('Demand', color="#097A5E")
-# ax2.set_ylabel('Revenue', color="#A02A2A")
-# ax2.tick_params(axis = "y")
-
-norm = Normal_distribution(6, 2, 2)
-norm.plot_clean()
+sim = Simulation(400, 900, 450, 200, 50, 0.1)
+sim.plot_demand_math()
+sim.plot_demand_exp()
+# plotting_errors(sim, 10, 99)
 
 plt.show()

@@ -14,6 +14,7 @@
 \usepackage[colorlinks=true, allcolors=black]{hyperref}
 \usepackage{wrapfig,lipsum,booktabs}
 \usepackage{enumitem}
+\usepackage{float}
 \usepackage{fmtcount}
 \usepackage{multicol}
 \usepackage{breqn}
@@ -108,10 +109,10 @@
 		Consider the distribution for the willingness to pay (WTP) of a given target group. This is the maximum price someone would pay for their data. By putting ourselves in the place of the malware authors, we can try to find out what the distribution is by examining samples of people and how they respond to a given price. This tests, however, cost us valuable time since the awareness of people rises constantly. So the question is, how many and how big test should we conduct in order to model the distribution with reasonable error and in the same time not lose too much time?\par
 		For a given size of the sample group, we calculate the error of a set of sample "customers" from the mathematically described function of the demand curve, derived from the distribution of WTP. Starting off low, we gradually expand the sample group size, estimating the expected error, via a Least squares approach, at each step.
 	\subsection{The model}
-		We assume people's data value follows a normal distribution and link it to a random variable $p\sim N(500, 150)$. The probability density function(PDF)\ref{def:def3} of a normal distribution $N(\mu, \sigma)$\ref{def:def1} is: $$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$$\par\noindent
+		We assume people's data value follows a normal distribution and link it to a random variable $p\sim N(500, 150)$. The probability density function(PDF)[\ref{def:def3}] of a normal distribution $N(\mu, \sigma)$[\ref{def:def1}] is: $$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$$\par\noindent
 		In order to calculate the demand function(as a probability) from the PDF(denoted with $f(k)$) for a given price $k$, we need to calculate:
 		$$\int_{k}^{\infty}f(x)d(x)$$
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\begin{minipage}{0.48\textwidth}
 				\centering
 				\includegraphics[width=\linewidth]{ND_integral}
@@ -132,7 +133,25 @@
 			\dfrac{1}{2}\left (1+Erf\left (\dfrac{z}{\sqrt{2}}\right )\right ) \text{if } x<\mu
 		\end{cases}
 		$$
-		
+		With that our mathematical function is well-defined and we can continue to examine experimental data.\par
+		The parameter we aim to optimize is the number of people each sample group consists of. Knowing the actual mathematical function we aim to describe gives us the possibility to evaluate the errors from the experimental data with maximum accuracy.
+		\begin{figure}[H]
+			\begin{minipage}{0.48\textwidth}
+				\centering
+				\includegraphics[width=\linewidth]{Exp_and_math_100}
+				\caption{Sample size 100}\label{Fig:Data3}
+			\end{minipage}$\longrightarrow$
+			\begin{minipage}{0.48\textwidth}
+				\centering
+				\includegraphics[width=\linewidth]{Exp_and_math_400}
+				\caption{Sample size 400}\label{Fig:Data4}
+			\end{minipage}
+		\end{figure}\par\noindent
+		Gathering information on the sample size and the corresponding errors, we can plot the changes.
+		\begin{center}
+			\includegraphics[width=0.7\textwidth]{"Error vs sample size 4"}
+		\end{center}
+				
 \section{Results}
 \section{Further development}
 \section*{Acknowledgments}

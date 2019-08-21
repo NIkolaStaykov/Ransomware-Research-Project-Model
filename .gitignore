@@ -1,10 +1,4 @@
 *.csv
-/LaTeX/Ransomware_research_project.aux
-/LaTeX/Ransomware_research_project.bbl
-/LaTeX/Ransomware_research_project.blg
-/LaTeX/Ransomware_research_project.log
-/LaTeX/Ransomware_research_project.out
-/LaTeX/Ransomware_research_project.synctex.gz
-/LaTeX/Ransomware_research_project.toc
+/LaTeX/
 /Py Model/.idea
 /Papers

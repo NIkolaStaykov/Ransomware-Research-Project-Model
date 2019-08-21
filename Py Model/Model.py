@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import math
 import statistics as st
 from Backup_function import backup_function
-# from Plots import double_plot
+# from Plots import NDist
 
 
 # Takes out a random WTP value from the distribution
@@ -69,6 +69,7 @@ class Simulation:
         return demand
 
     # Plotting the actual mathematical function
+    # Returns prices and demand in two arrays
     def plot_demand_math(self):
         price_math = []
         demand_math = []
@@ -121,19 +122,28 @@ def plotting_errors(simulation, sample_step, points_count):
     plt.plot(sample_sizes, error_mean)
 
 
-profit_means = []
-backup_percentage = []
-for i in range(20):
-    sim = Simulation(200, 900, 350, 150, 0.05*i + 0.04, 50)
-    sth = sim.plot_demand_exp()
-    expected_profit = math.floor(sim.ppl_sample_size * np.mean(np.multiply(sth[0], sth[1])))
-    profit_means.append(expected_profit)
-    backup_percentage.append(5*i + 4)
+# Plotting error vs backup percentage
+def backup_vs_profit(simulation, percent_step):
+    profit_means = []
+    backup_percentage = []
+    steps = math.floor((1-simulation.backup_prob)/percent_step)
+    for i in range(steps):
+        sim_it = Simulation(simulation.ppl_sample_size, simulation.mean, simulation.st_div,
+                            simulation.number_of_points, simulation.backup_prob + i*percent_step,
+                            simulation.backup_price)
+        sth = sim_it.plot_demand_exp()
+        expected_profit = math.floor(sim_it.ppl_sample_size * np.mean(np.multiply(sth[0], sth[1])))
+        profit_means.append(expected_profit)
+        backup_percentage.append(100*percent_step*i + 100*simulation.backup_prob)
+    data = [backup_percentage, profit_means]
+    return data
+
+
 sim = Simulation(200, 900, 350, 100, 0.6, 50)
-print(profit_means)
-plt.plot(backup_percentage, profit_means, color="#097A5E")
+plot_data = backup_vs_profit(sim, 0.4)
+plt.plot(plot_data[0], plot_data[1], color="#097A5E")
 plt.xlabel("Backup percentage")
 plt.ylabel("Expected revenue")
-# plotting_errors(sim, 10, 99)
+
 
 plt.show()

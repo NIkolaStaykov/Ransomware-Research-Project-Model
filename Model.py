@@ -139,11 +139,9 @@ def backup_vs_profit(simulation, percent_step):
     return data
 
 
-sim = Simulation(200, 900, 350, 100, 0.6, 50)
-plot_data = backup_vs_profit(sim, 0.4)
-plt.plot(plot_data[0], plot_data[1], color="#097A5E")
-plt.xlabel("Backup percentage")
-plt.ylabel("Expected revenue")
-
-
-plt.show()
+# sim = Simulation(200, 900, 350, 100, 0.6, 50)
+# plot_data = backup_vs_profit(sim, 0.4)
+# plt.plot(plot_data[0], plot_data[1], color="#097A5E")
+# plt.xlabel("Backup percentage")
+# plt.ylabel("Expected revenue")
+# plt.show()

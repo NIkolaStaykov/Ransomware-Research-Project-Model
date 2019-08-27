@@ -1,2 +1,2 @@
 # Ransomware-research-project
-This project aims to analyse ransomware throughout the years, the profit hackers made from attacks of the sort and simulate the way modern ransomware spreads in a simulated network
+This project aims to model ransom-payment transactions and optimize the profit from paid ransom with respect various parameters such as backup, risk and campaign costs. Another goal of the project is to model the distribution of ransomware throughoout a simulated network of virtual machines. It may seem as if the project can be used solely by criminals but by supporting such research, one inevitably finds out a lot about the inner workings of the economy of ransomware and can take the respective actions to restrict its influence

@@ -47,8 +47,8 @@ class Simulation:
             demand.append(self.fit(price_step * i))
             price.append(price_step * i)
         # plt.scatter(price, demand, color="#86E9D1")
-        left = [demand, price]
-        return left
+        data = [price, demand]
+        return data
 
     # Error function to compare data with the actual plot
     def error_f(self):
@@ -103,6 +103,11 @@ class Simulation:
 
 
 # Calculating errors
+def error_percent(simulation, price):
+    error = abs(100*(simulation.fit(price)-simulation.demand_function(price))/simulation.fit(price))
+    return error
+
+
 def plotting_errors(simulation, sample_step, points_count):
     error_array = []
     error_mean = []
@@ -139,9 +144,5 @@ def backup_vs_profit(simulation, percent_step):
     return data
 
 
-# sim = Simulation(200, 900, 350, 100, 0.6, 50)
-# plot_data = backup_vs_profit(sim, 0.4)
-# plt.plot(plot_data[0], plot_data[1], color="#097A5E")
-# plt.xlabel("Backup percentage")
-# plt.ylabel("Expected revenue")
-# plt.show()
+# def price_estimate(price_to_est, err):
+#     print(price_to_est + err)

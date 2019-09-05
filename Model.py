@@ -39,7 +39,7 @@ class Simulation:
         return ppl / self.ppl_sample_size
 
     # Plotting the experimental data
-    def plot_demand_exp(self):
+    def demand_exp_data(self):
         demand = []
         price = []
         price_step = math.floor((self.mean + 3 * self.st_div) / self.number_of_points)

@@ -4,11 +4,15 @@ import Model as md
 
 sim = md.Simulation(200, 690, 130, 5, 0, 3)
 str1 = input("Price: ")
-price_to_estimate = int(str1)
-# str1 = input("Acceptable Error: ")
-# error = int(str1)
+ransom_value = int(str1)
+str1 = input("Acceptable Error: ")
+error_boundary = int(str1)
+error_boundary = error_boundary/1000
 
-plot_data = sim.plot_demand_exp()
-
-error_percentage = md.error_percent(sim, price_to_estimate)
-print("Error: ", error_percentage, "%")
+b = 1
+while b != 0:
+    error_percentage = md.error_percent(sim, ransom_value)
+    if error_percentage < error_boundary:
+        b = 0
+        print("Minimal sample size: ", sim.ppl_sample_size)
+    sim.ppl_sample_size += 20

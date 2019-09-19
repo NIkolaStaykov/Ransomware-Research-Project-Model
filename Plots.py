@@ -4,7 +4,7 @@ import scipy.stats as stats
 
 
 # Plotting the integral under ND
-class NDist:
+class NormDist:
 
     def __init__(self, mean, sd, z_score):
         self.mean = mean
@@ -27,13 +27,26 @@ class NDist:
         ax.plot(x, stats.norm.pdf(x, self.mean, self.sd), color="#0698B0")
 
 
-def double_plot(left, right):
+def double_plot(left_data, right_data):
     fig, ax1 = plt.subplots()
     ax2 = ax1.twinx()
-    ax1.plot(left[0], left[1], color="#097A5E")
-    ax2.plot(left[0], right[1], color="#A02A2A", linestyle='--')
+    ax1.plot(left_data[0], left_data[1], color="#097A5E")
+    ax2.plot(left_data[0], right_data[1], color="#A02A2A", linestyle='--')
 
     ax1.set_xlabel('Price')
     ax1.set_ylabel('Demand', color="#097A5E")
     ax2.set_ylabel('Revenue', color="#A02A2A")
     ax2.tick_params(axis="y")
+
+
+class PaperPlots:
+    def __init__(self, prob_1, prob_2, mean, something):
+        self.prob_1 = prob_1
+        self.prob_2 = prob_2
+        self.mean = mean
+        self.something = something
+
+    def two_armed_bandit(self):
+        x = np.linspace(0, 1, 100)
+        y = self.prob_1
+        plt.plot(x, y)

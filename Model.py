@@ -136,13 +136,9 @@ def backup_vs_profit(simulation, percent_step):
         sim_it = Simulation(simulation.ppl_sample_size, simulation.mean, simulation.st_div,
                             simulation.number_of_points, simulation.backup_prob + i*percent_step,
                             simulation.backup_price)
-        sth = sim_it.plot_demand_exp()
+        sth = sim_it.demand_exp_data()
         expected_profit = math.floor(sim_it.ppl_sample_size * np.mean(np.multiply(sth[0], sth[1])))
         profit_means.append(expected_profit)
         backup_percentage.append(100*percent_step*i + 100*simulation.backup_prob)
     data = [backup_percentage, profit_means]
     return data
-
-
-# def price_estimate(price_to_est, err):
-#     print(price_to_est + err)

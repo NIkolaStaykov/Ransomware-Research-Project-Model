@@ -16,3 +16,4 @@ while b != 0:
         b = 0
         print("Minimal sample size: ", sim.ppl_sample_size)
     sim.ppl_sample_size += 20
+

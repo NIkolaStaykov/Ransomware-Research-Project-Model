@@ -147,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569514802359</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Completed checks for backups with given prob.">
+      <created>1569606934164</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1569606934164</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -183,6 +190,7 @@
     <MESSAGE value="Started the main file" />
     <MESSAGE value="Finished error function in main" />
     <MESSAGE value="Backup_cost reg commit. Still not finished with date formatting." />
-    <option name="LAST_COMMIT_MESSAGE" value="Backup_cost reg commit. Still not finished with date formatting." />
+    <MESSAGE value="Completed checks for backups with given prob." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed checks for backups with given prob." />
   </component>
 </project>

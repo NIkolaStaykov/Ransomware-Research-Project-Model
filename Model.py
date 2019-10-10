@@ -104,7 +104,7 @@ class Simulation:
 
 # Calculating errors
 def error_percent(simulation, price):
-    error = abs(100*(simulation.fit(price)-simulation.demand_function(price))/simulation.fit(price))
+    error = abs((simulation.fit(price)-simulation.demand_function(price))/simulation.fit(price))
     return error
 
 

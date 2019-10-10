@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Slider_playground.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Py Model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Py Model.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Zero_probability_graph.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slider_playground.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +53,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Slider_playground">
+  <component name="RunManager" selected="Python.Zero_probability_graph">
     <configuration name="Backup_cost" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Py Model" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,7 +96,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Slider_playground" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="Zero_probability_graph" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Py Model" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -112,7 +108,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Slider_playground.py" />
+      <option name="SCRIPT_NAME" value="C:\Project CKY\Py_Model\Zero_probability_graph.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -123,7 +119,7 @@
     </configuration>
     <list>
       <item itemvalue="Python.Model" />
-      <item itemvalue="Python.Slider_playground" />
+      <item itemvalue="Python.Zero_probability_graph" />
       <item itemvalue="Python.Backup_cost" />
     </list>
     <recent_temporary>

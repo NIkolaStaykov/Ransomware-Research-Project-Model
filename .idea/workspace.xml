@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Zero_probability_graph.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Slider_playground.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zero_probability_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Zero_probability_graph.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

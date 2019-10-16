@@ -180,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569606934164</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Now we have two kinds of backup. No idea what to do with probability.">
+      <created>1571171089890</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1571171089890</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -217,6 +224,7 @@
     <MESSAGE value="Finished error function in main" />
     <MESSAGE value="Backup_cost reg commit. Still not finished with date formatting." />
     <MESSAGE value="Completed checks for backups with given prob." />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed checks for backups with given prob." />
+    <MESSAGE value="Now we have two kinds of backup. No idea what to do with probability." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now we have two kinds of backup. No idea what to do with probability." />
   </component>
 </project>

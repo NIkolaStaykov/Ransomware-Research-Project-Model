@@ -7,6 +7,7 @@
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="Tried to turn in into a class, update function of slider didn't agree.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup_cost.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backup_cost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slider_plot_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slider_plot_0.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +53,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Backup_cost">
+  <component name="RunManager" selected="Python.Slider_plot_0">
     <configuration name="Backup_cost" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Py Model" />
       <option name="INTERPRETER_OPTIONS" value="" />

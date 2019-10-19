@@ -28,9 +28,9 @@ backup_dates = backup_dates_big + backup_dates_small
 
 dates_numbers = np.arange(0.0, days, 1)
 dates_datetime = []
-last_backup_date = '10/18/2019'
+first_backup_date = '10/18/2019'
 for i in dates_numbers:
-    dates_datetime.append(datetime.datetime.strptime(last_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i))
+    dates_datetime.append(datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i))
 counter = 0
 fail_big = 0
 fail_small = 0
@@ -68,18 +68,21 @@ def y_data_1(w_rate):
 
 a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, None, None, 1/2)
 a.disaster_date = '01/10/2019'
+backup_dates_datetime = []
 for i in backup_dates:
-    dates_datetime.append(datetime.datetime.strptime(last_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i))
-
-
-def data_random(point_generator, points_count):
-    y_data_rand = []
-    x_data_rand = []
-    for n in range(points_count):
-        point = point_generator.point()
-        y_data_rand.append(point[1])
-        x_data_rand.append(point[0])
-    return [x_data_rand, y_data_rand]
+    backup_dates_datetime.append(datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i))
+a.backups = backup_dates_datetime
+print(a.backups)
+#
+#
+# def data_random(point_generator, points_count):
+#     y_data_rand = []
+#     x_data_rand = []
+#     for n in range(points_count):
+#         point = point_generator.point()
+#         y_data_rand.append(point[1])
+#         x_data_rand.append(point[0])
+#     return [x_data_rand, y_data_rand]
 
 
 fig, ax = plt.subplots()
@@ -92,12 +95,13 @@ plt.ylabel("Backup price")
 
 prices_1 = y_data_1(initial_work_rate)
 k, = plt.plot(dates_numbers, prices_1, color='red', lw=1.2)
+#
+# random_data = data_random(a, 180)
+# m, = plt.scatter(random_data[0], random_data[1], color='green', lw=1.2)
+# ax.margins(x=0)
 
-random_prices = data_random(a, 180)[1]
-random
-m, = plt.scatter(dates_numbers, random_prices, color='green', lw=1.2)
-ax.margins(x=0)
 
+# Setting up the sliders
 ax_color = 'lightgoldenrodyellow'
 ax_work_rate = plt.axes([0.25, 0.15, 0.65, 0.03], facecolor=ax_color)
 ax_price_big = plt.axes([0.25, 0.10, 0.65, 0.03], facecolor=ax_color)
@@ -105,6 +109,8 @@ ax_price_small = plt.axes([0.25, 0.05, 0.65, 0.03], facecolor=ax_color)
 s_work_rate = Slider(ax_work_rate, 'Work Rate', 0.1, 300.0, valinit=initial_work_rate)
 s_price_big = Slider(ax_price_big, 'Big backup price', 10, 120.0, valinit=init_price_big, valstep=2.5)
 s_price_small = Slider(ax_price_small, 'Small backup price', 5, 130.0, valinit=init_price_small, valstep=2.5, slidermax=s_price_big)
+
+# The update function for the sliders
 
 
 def update(val):

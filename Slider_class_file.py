@@ -72,7 +72,7 @@ class Visualisation:
         self.s_work_rate.reset()
         self.s_price_big.reset()
         self.s_price_small.reset()
-        self.button.on_clicked(self.reset)
+        self.button_setup.on_clicked(self.reset)
 
     def update(self, val):
         plots = self.defining_plots()

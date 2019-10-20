@@ -21,7 +21,7 @@ class Backup_cost:
             return [success, "nada"]
 
     def data_loss(self):
-        global info  # info[0] is the success state of the recovery, info[1] is the successful backup date or "nada"
+        info = []  # info[0] is the success state of the recovery, info[1] is the successful backup date or "nada"
         number_of_backups = len(self.backups)
         # print("Number of backups:", number_of_backups)
         # successful_backups = []
@@ -34,9 +34,9 @@ class Backup_cost:
                 print("tried with backup date:", self.backups[i])
                 print("success state:", success)
             else:
-                print(self.backups[i], "does not exist yet")
+                print(self.backups[i], "does not exist yet", '\n')
             if i == number_of_backups - 1 and success == 0:
-                print("Couldn't restore data")
+                print("Couldn't restore data", '\n')
                 break
             i += 1
         info.append(i)
@@ -51,31 +51,14 @@ class Backup_cost:
         new_info = self.data_loss()
         if new_info[0] == 1:
             backup_delta = self.time_delta(new_info[1])
-            total = backup_delta.days*self.work_rate + info[2] * self.single_try_price
-            print("total recovery price:", total)
-            return total
+            total = backup_delta.days*self.work_rate + new_info[2] * self.single_try_price
+            print("total recovery price:", total, '\n')
+            return [backup_delta, total]
         if new_info[0] == 0:
             print("Pay the ransom if data value is less")
-            return None
+            return [0, None]
 
-    def point(self, backup_date):
-        x = self.time_delta(backup_date)
-        y = self.backup_price_total()
+    def point(self):
+        x = self.backup_price_total()[0].days
+        y = self.backup_price_total()[1]
         return [x, y]
-
-
-# backs = ['9/23/2019', '9/20/2019', '9/13/2019']
-#
-# # Backup_cost(work rate, recovery try price, disaster date, backup dates, failure probability)
-# a = Backup_cost(300, 50, '09/25/2019', backs, 1/2)
-# a.backup_price_total()
-# x = []
-# y = []
-# for it in range(200):
-#     # for k in range(5):
-#     y.append(a.backup_price_total())
-#     x.append(a.disaster_date)
-#     a.disaster_date += datetime.timedelta(days=1)
-# plt.plot(x, y, color="red")
-# plt.gcf().autofmt_xdate()
-# plt.show()

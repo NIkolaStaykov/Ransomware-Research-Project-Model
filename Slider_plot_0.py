@@ -75,8 +75,6 @@ for i in backup_dates:
     datetime_iterator = datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i)
     backup_dates_string.append(datetime_iterator.strftime('%m/%d/%Y'))
 backup_dates_string = backup_dates_string[::-1]
-print("backup dates string", backup_dates_string)
-print("backup dates datetime", backup_dates_datetime)
 
 
 # Generating random data
@@ -85,16 +83,16 @@ def data_random(point_generator, points_count):
     x_data_rand = []
     for n in range(points_count):
         point_generator.disaster_date += datetime.timedelta(days=1)
-        for m in range(20):
+        for m in range(3):
             point = point_generator.point()
             y_data_rand.append(point[1])
             x_data_rand.append(point[0])
     return [x_data_rand, y_data_rand]
 
 
-disaster_date = backup_dates_string[-2]
+disaster_date = (datetime.datetime.strptime(backup_dates_string[-1], '%m/%d/%Y') + datetime.timedelta(days=1)).strftime('%m/%d/%Y')
 a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, disaster_date, backup_dates_string, 1/2)
-random_data = data_random(a, 10)
+random_data = data_random(a, days - 4)
 print(random_data[0])
 print(random_data[1])
 

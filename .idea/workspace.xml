@@ -215,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572113121745</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Looks pretty decent now, just have to figure out where the disorder comes from">
+      <created>1572119734747</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1572119734747</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -257,6 +264,7 @@
     <MESSAGE value="Trying to ship the slider file with the random generator file. Still not ready." />
     <MESSAGE value="Managed to get a graph, just have to figure out what I'm graphing now." />
     <MESSAGE value="reg commit, almost finished with graphing random points" />
-    <option name="LAST_COMMIT_MESSAGE" value="reg commit, almost finished with graphing random points" />
+    <MESSAGE value="Looks pretty decent now, just have to figure out where the disorder comes from" />
+    <option name="LAST_COMMIT_MESSAGE" value="Looks pretty decent now, just have to figure out where the disorder comes from" />
   </component>
 </project>

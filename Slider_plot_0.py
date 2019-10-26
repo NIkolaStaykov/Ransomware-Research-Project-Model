@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider, Button
 import datetime
 import Backup_cost
+from matplotlib.dates import DateFormatter
 
 # take user input for parameters needed
 days = int(input("Days to visualize:"))
@@ -24,13 +25,17 @@ for i in range(days):
         backup_dates_small.append(i)
 
 backup_dates = backup_dates_big + backup_dates_small
+backup_dates.sort()
 
-# Dates int to dates datetime
+# Dates and backup dates int to datetime
 dates_numbers = np.arange(0.0, days, 1)
 dates_datetime = []
+backup_dates_datetime = []
 first_backup_date = '10/18/2019'
 for i in dates_numbers:
     dates_datetime.append(datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i))
+for i in backup_dates:
+    backup_dates_datetime.append(datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i))
 
 
 # y data functions for the two linear graphics
@@ -70,7 +75,8 @@ for i in backup_dates:
     datetime_iterator = datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i)
     backup_dates_string.append(datetime_iterator.strftime('%m/%d/%Y'))
 backup_dates_string = backup_dates_string[::-1]
-print(backup_dates_string)
+print("backup dates string", backup_dates_string)
+print("backup dates datetime", backup_dates_datetime)
 
 
 # Generating random data
@@ -78,10 +84,11 @@ def data_random(point_generator, points_count):
     y_data_rand = []
     x_data_rand = []
     for n in range(points_count):
-        point_generator.disaster_date += datetime.timedelta(days=n)
-        point = point_generator.point()
-        y_data_rand.append(point[1])
-        x_data_rand.append(point[0])
+        point_generator.disaster_date += datetime.timedelta(days=1)
+        for m in range(20):
+            point = point_generator.point()
+            y_data_rand.append(point[1])
+            x_data_rand.append(point[0])
     return [x_data_rand, y_data_rand]
 
 
@@ -93,19 +100,20 @@ print(random_data[1])
 
 # Plotting the data
 fig, ax = plt.subplots()
-plt.subplots_adjust(left=0.15, bottom=0.5)
+plt.subplots_adjust(left=0.15, bottom=0.3)
 
 prices = y_data(init_price_big, init_price_small, initial_work_rate)
 l, = plt.plot(dates_datetime, prices, lw=1.2)
-plt.xlabel("Days from disaster to recovery")
+plt.xlabel("Disaster date")
 plt.ylabel("Backup price")
-plt.gcf().autofmt_xdate()
 
 prices_1 = y_data_1(initial_work_rate)
 k, = plt.plot(dates_datetime, prices_1, color='red', lw=1.2)
 
 m = plt.scatter(random_data[0], random_data[1], color='green', lw=1.2)
 ax.margins(x=0)
+date_form = DateFormatter("%m/%d")
+ax.xaxis.set_major_formatter(date_form)
 
 
 # Setting up the sliders
@@ -126,6 +134,7 @@ def update(val):
     fig.canvas.draw_idle()
     l.set_ydata(y_data(price_big, price_small, work_rate))
     k.set_ydata(y_data_1(work_rate))
+    # m.set_ydata(data_random(work_rate, price_small, disaster_date, backup_dates_string, 1/2, 10)[])
 
 
 s_work_rate.on_changed(update)

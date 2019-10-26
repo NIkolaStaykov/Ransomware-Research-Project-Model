@@ -7,7 +7,6 @@
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup_cost.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backup_cost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Slider_class_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slider_class_file.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Slider_plot_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slider_plot_0.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -203,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571420084846</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Managed to get a graph, just have to figure out what I'm graphing now.">
+      <created>1571563403196</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1571563403196</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -243,6 +249,7 @@
     <MESSAGE value="Now we have two kinds of backup. No idea what to do with probability." />
     <MESSAGE value="Tried to turn in into a class, update function of slider didn't agree." />
     <MESSAGE value="Trying to ship the slider file with the random generator file. Still not ready." />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to ship the slider file with the random generator file. Still not ready." />
+    <MESSAGE value="Managed to get a graph, just have to figure out what I'm graphing now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Managed to get a graph, just have to figure out what I'm graphing now." />
   </component>
 </project>

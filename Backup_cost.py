@@ -1,6 +1,5 @@
 import numpy as np
 import datetime
-import matplotlib.pyplot as plt
 
 
 class Backup_cost:
@@ -18,7 +17,7 @@ class Backup_cost:
         if success == 1:
             return [success, backup_date]
         else:
-            return [success, "nada"]
+            return [success, None]
 
     def data_loss(self):
         info = []  # info[0] is the success state of the recovery, info[1] is the successful backup date or "nada"
@@ -59,6 +58,6 @@ class Backup_cost:
             return [0, None]
 
     def point(self):
-        x = self.backup_price_total()[0].days
+        x = self.disaster_date
         y = self.backup_price_total()[1]
         return [x, y]

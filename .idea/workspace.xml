@@ -223,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572119734747</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed some bug with the number of fail, now points stay where they need to be.">
+      <created>1572648297529</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1572648297529</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -266,6 +273,7 @@
     <MESSAGE value="Managed to get a graph, just have to figure out what I'm graphing now." />
     <MESSAGE value="reg commit, almost finished with graphing random points" />
     <MESSAGE value="Looks pretty decent now, just have to figure out where the disorder comes from" />
-    <option name="LAST_COMMIT_MESSAGE" value="Looks pretty decent now, just have to figure out where the disorder comes from" />
+    <MESSAGE value="Fixed some bug with the number of fail, now points stay where they need to be." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some bug with the number of fail, now points stay where they need to be." />
   </component>
 </project>

@@ -81,20 +81,20 @@ backup_dates_string = backup_dates_string[::-1]
 def data_random(point_generator, points_count):
     y_data_rand = []
     x_data_rand = []
+    colors = []
     for n in range(points_count):
         point_generator.disaster_date += datetime.timedelta(days=1)
-        for m in range(3):
+        for r in range(3):
             point = point_generator.point()
-            y_data_rand.append(point[1])
             x_data_rand.append(point[0])
-    return [x_data_rand, y_data_rand]
+            y_data_rand.append(point[1])
+            colors.append(point[2])
+    return [x_data_rand, y_data_rand, colors]
 
 
 disaster_date = (datetime.datetime.strptime(backup_dates_string[-1], '%m/%d/%Y') + datetime.timedelta(days=1)).strftime('%m/%d/%Y')
-a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, disaster_date, backup_dates_string, 1/3)
+a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, disaster_date, backup_dates_string, 6/8)
 random_data = data_random(a, days - 4)
-print(random_data[0])
-print(random_data[1])
 
 # Plotting the data
 fig, ax = plt.subplots()
@@ -108,7 +108,7 @@ plt.ylabel("Backup price")
 prices_1 = y_data_1(initial_work_rate)
 k, = plt.plot(dates_datetime, prices_1, color='red', lw=1.2)
 
-m = plt.scatter(random_data[0], random_data[1], color='green', lw=1.2)
+m = plt.scatter(random_data[0], random_data[1], color=random_data[2], lw=1.2)
 ax.margins(x=0)
 date_form = DateFormatter("%m/%d")
 ax.xaxis.set_major_formatter(date_form)

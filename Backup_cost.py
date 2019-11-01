@@ -57,9 +57,13 @@ class Backup_cost:
             return [backup_delta, total]
         if new_info[0] == 0:
             print("Pay the ransom if data value is less", '\n')
-            return [0, None]
+            return [0, -100]
 
     def point(self):
         x = self.disaster_date
         y = self.backup_price_total()[1]
-        return [x, y]
+        if y == -100:
+            color = "red"
+        else:
+            color = "blue"
+        return [x, y, color]

@@ -91,7 +91,7 @@ def data_random(point_generator, points_count):
 
 
 disaster_date = (datetime.datetime.strptime(backup_dates_string[-1], '%m/%d/%Y') + datetime.timedelta(days=1)).strftime('%m/%d/%Y')
-a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, disaster_date, backup_dates_string, 1/2)
+a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, disaster_date, backup_dates_string, 1/3)
 random_data = data_random(a, days - 4)
 print(random_data[0])
 print(random_data[1])

@@ -26,19 +26,21 @@ class Backup_cost:
         # successful_backups = []
         i = 0
         success = 0
+        fail_counter = 0
         while success == 0:
             if datetime.datetime.strptime(self.backups[i], '%m/%d/%Y') < self.disaster_date:
                 info = self.recovery_attempt(self.backups[i])
                 success = info[0]
                 print("tried with backup date:", self.backups[i])
                 print("success state:", success)
+                fail_counter += 1
             else:
-                print(self.backups[i], "does not exist yet", '\n')
+                print(self.backups[i], "does not exist yet")
             if i == number_of_backups - 1 and success == 0:
-                print("Couldn't restore data", '\n')
+                print("Couldn't restore data")
                 break
             i += 1
-        info.append(i)
+        info.append(fail_counter-1)
         return info
 
     def time_delta(self, recovery_date):
@@ -51,10 +53,10 @@ class Backup_cost:
         if new_info[0] == 1:
             backup_delta = self.time_delta(new_info[1])
             total = backup_delta.days*self.work_rate + new_info[2] * self.single_try_price
-            print("total recovery price:", total, '\n')
+            print("total recovery price:", total, '\n', "number of fails:", new_info[2], '\n')
             return [backup_delta, total]
         if new_info[0] == 0:
-            print("Pay the ransom if data value is less")
+            print("Pay the ransom if data value is less", '\n')
             return [0, None]
 
     def point(self):

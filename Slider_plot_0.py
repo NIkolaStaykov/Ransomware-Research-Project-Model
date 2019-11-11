@@ -12,8 +12,13 @@ init_price_big = int(input("Initial price for a recovery try of full backups:"))
 init_price_small = int(input("Initial price for a recovery try of incremental backups:"))
 
 
-# setup backup dates arrays as diff from initial time point
+class Backup:
+    def __init__(self, date, backup_type):
+        self.date = date
+        self.backup_type = backup_type
 
+
+# setup backup dates arrays as diff from initial time point
 backup_dates_big = []
 for i in range(days):
     if i % 7 == 2:

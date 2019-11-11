@@ -19,28 +19,33 @@ class Backup_cost:
         else:
             return [success, None]
 
-    def data_loss(self):
+    # calculates the difference between the successful backup date and the disaster date in dates
+    # returns the difference in days and the number of unsuccessful backups from the respective types
+    def data_loss_info(self):
         info = []  # info[0] is the success state of the recovery, info[1] is the successful backup date or "nada"
         number_of_backups = len(self.backups)
-        # print("Number of backups:", number_of_backups)
-        # successful_backups = []
         i = 0
         success = 0
-        fail_counter = 0
+        fail_counter_small = 0
+        fail_counter_big = 0
         while success == 0:
-            if datetime.datetime.strptime(self.backups[i], '%m/%d/%Y') < self.disaster_date:
-                info = self.recovery_attempt(self.backups[i])
+            if datetime.datetime.strptime(self.backups[i].date, '%m/%d/%Y') < self.disaster_date:
+                info = self.recovery_attempt(self.backups[i].date)
                 success = info[0]
-                print("tried with backup date:", self.backups[i])
+                print("tried with backup date:", self.backups[i].date)
                 print("success state:", success)
-                fail_counter += 1
+                if self.backups[i].backup_type == "small" and success == 0:
+                    fail_counter_small += 1
+                if self.backups[i].backup_type == "big" and success == 0:
+                    fail_counter_big += 1
             else:
-                print(self.backups[i], "does not exist yet")
+                print(self.backups[i].date, "does not exist yet")
             if i == number_of_backups - 1 and success == 0:
                 print("Couldn't restore data")
                 break
             i += 1
-        info.append(fail_counter-1)
+        info.append(fail_counter_small)
+        info.append(fail_counter_big)
         return info
 
     def time_delta(self, recovery_date):
@@ -49,7 +54,7 @@ class Backup_cost:
         return time_passed
 
     def backup_price_total(self):
-        new_info = self.data_loss()
+        new_info = self.data_loss_info()
         if new_info[0] == 1:
             backup_delta = self.time_delta(new_info[1])
             total = backup_delta.days*self.work_rate + new_info[2] * self.single_try_price

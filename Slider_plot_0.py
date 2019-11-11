@@ -10,37 +10,39 @@ days = int(input("Days to visualize:"))
 initial_work_rate = int(input("Initial work rate:"))
 init_price_big = int(input("Initial price for a recovery try of full backups:"))
 init_price_small = int(input("Initial price for a recovery try of incremental backups:"))
+first_backup_date = '10/18/2019'
 
 
 class Backup:
-    def __init__(self, date, backup_type):
-        self.date = date
+    def __init__(self, backup_date, backup_type):
+        self.date = backup_date
         self.backup_type = backup_type
 
 
 # setup backup dates arrays as diff from initial time point
-backup_dates_big = []
+backups_big = []
 for i in range(days):
     if i % 7 == 2:
-        backup_dates_big.append(i)
+        date = datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i)
+        backups_big.append(Backup(date, 'big'))
 
-backup_dates_small = []
+backups_small = []
 for i in range(days):
     if i % 7 == 3 or i % 7 == 5:
-        backup_dates_small.append(i)
+        date = datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i)
+        backups_small.append(Backup(date, 'small'))
 
-backup_dates = backup_dates_big + backup_dates_small
-backup_dates.sort()
+backups = backups_big + backups_small
+backups.sort()
 
 # Dates and backup dates int to datetime
 dates_numbers = np.arange(0.0, days, 1)
 dates_datetime = []
 backup_dates_datetime = []
-first_backup_date = '10/18/2019'
 for i in dates_numbers:
     dates_datetime.append(datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i))
-for i in backup_dates:
-    backup_dates_datetime.append(datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i))
+for i in backups:
+    backup_dates_datetime.append(datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + i.date.days)
 
 
 # y data functions for the two linear graphics
@@ -50,10 +52,10 @@ def y_data(single_try_big, single_try_small,  w_rate):
     new_fail_small = 0
     prices_high = dates_numbers.copy()
     for new_time_iterator in dates_numbers:
-        for new_backup_date_iterator in backup_dates_big:
+        for new_backup_date_iterator in backups_big:
             if new_time_iterator == new_backup_date_iterator:
                 new_fail_big += 1
-        for new_backup_date_iterator in backup_dates_small:
+        for new_backup_date_iterator in backups_small:
             if new_time_iterator == new_backup_date_iterator:
                 new_fail_small += 1
         prices_high[new_counter] = dates_numbers[new_counter] * w_rate + single_try_big * new_fail_big + single_try_small * new_fail_small
@@ -66,7 +68,7 @@ def y_data_1(w_rate):
     prices_low = dates_numbers.copy()
     last_backup = 0
     for time_iterator in dates_numbers:
-        for backup_date_iterator in backup_dates:
+        for backup_date_iterator in backups:
             if time_iterator == backup_date_iterator:
                 last_backup = backup_date_iterator
         prices_low[new_counter] = (dates_numbers[new_counter] - last_backup) * w_rate
@@ -74,9 +76,9 @@ def y_data_1(w_rate):
     return prices_low
 
 
-# backup dates to datetime
+# backup dates to string
 backup_dates_string = []
-for i in backup_dates:
+for i in backups:
     datetime_iterator = datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i)
     backup_dates_string.append(datetime_iterator.strftime('%m/%d/%Y'))
 backup_dates_string = backup_dates_string[::-1]

@@ -49,7 +49,7 @@ class Backup_cost:
         return info
 
     def time_delta(self, recovery_date):
-        recovery_date = datetime.datetime.strptime(recovery_date, '%m/%d/%Y')
+        # recovery_date = datetime.datetime.strptime(recovery_date, '%m/%d/%Y')
         time_passed = self.disaster_date - recovery_date
         return time_passed
 

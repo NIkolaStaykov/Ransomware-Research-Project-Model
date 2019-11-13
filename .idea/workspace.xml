@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup_cost.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backup_cost.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Slider_plot_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slider_plot_0.py" afterDir="false" />
     </list>
@@ -243,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573476022763</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Is supposed to work, will check later.">
+      <created>1573477450668</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1573477450668</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -289,6 +297,7 @@
     <MESSAGE value="Fixed some bug with the number of fail, now points stay where they need to be." />
     <MESSAGE value="Failed attempts now in red under the graph" />
     <MESSAGE value="Started to make the points differentiate between big and small backups. Still not finished." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started to make the points differentiate between big and small backups. Still not finished." />
+    <MESSAGE value="Is supposed to work, will check later." />
+    <option name="LAST_COMMIT_MESSAGE" value="Is supposed to work, will check later." />
   </component>
 </project>

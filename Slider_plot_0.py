@@ -32,17 +32,14 @@ for i in range(days):
         date = datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i)
         backups_small.append(Backup(date, 'small'))
 
-backups = backups_big + backups_small
-backups.sort()
+backups = sorted(backups_big + backups_small, key=lambda backup: backup.date)
+backups.reverse()
 
 # Dates and backup dates int to datetime
 dates_numbers = np.arange(0.0, days, 1)
 dates_datetime = []
-backup_dates_datetime = []
 for i in dates_numbers:
     dates_datetime.append(datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i))
-for i in backups:
-    backup_dates_datetime.append(datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + i.date.days)
 
 
 # y data functions for the two linear graphics
@@ -79,8 +76,7 @@ def y_data_1(w_rate):
 # backup dates to string
 backup_dates_string = []
 for i in backups:
-    datetime_iterator = datetime.datetime.strptime(first_backup_date, '%m/%d/%Y') + datetime.timedelta(days=i)
-    backup_dates_string.append(datetime_iterator.strftime('%m/%d/%Y'))
+    backup_dates_string.append(i.date.strftime('%m/%d/%Y'))
 backup_dates_string = backup_dates_string[::-1]
 
 
@@ -99,8 +95,8 @@ def data_random(point_generator, points_count):
     return [x_data_rand, y_data_rand, colors]
 
 
-disaster_date = (datetime.datetime.strptime(backup_dates_string[-1], '%m/%d/%Y') + datetime.timedelta(days=1)).strftime('%m/%d/%Y')
-a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, disaster_date, backup_dates_string, 6/8)
+disaster_date = backups[-1].date.strftime('%m/%d/%Y')
+a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, init_price_big, disaster_date, backups, 6/8)
 random_data = data_random(a, days - 4)
 
 # Plotting the data
@@ -139,7 +135,6 @@ def update(val):
     fig.canvas.draw_idle()
     l.set_ydata(y_data(price_big, price_small, work_rate))
     k.set_ydata(y_data_1(work_rate))
-    # m.set_ydata(data_random(work_rate, price_small, disaster_date, backup_dates_string, 1/2, 10)[])
 
 
 s_work_rate.on_changed(update)

@@ -60,7 +60,7 @@ def y_data_high(single_try_big, single_try_small, w_rate):
     return prices_high
 
 
-last_backup = 0
+last_backup = backups[-1].date
 
 
 def y_data_low(w_rate):

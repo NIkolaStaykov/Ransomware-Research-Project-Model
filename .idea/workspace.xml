@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Slider_plot_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slider_plot_0.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -257,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573678761698</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Almost done with everything, only the beginning of the red thingy (lower boundary) is off now.">
+      <created>1573682807655</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1573682807655</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -305,6 +311,7 @@
     <MESSAGE value="Started to make the points differentiate between big and small backups. Still not finished." />
     <MESSAGE value="Is supposed to work, will check later." />
     <MESSAGE value="Points are okay now, considering small and big backups, everything else on the other hand isn't." />
-    <option name="LAST_COMMIT_MESSAGE" value="Points are okay now, considering small and big backups, everything else on the other hand isn't." />
+    <MESSAGE value="Almost done with everything, only the beginning of the red thingy (lower boundary) is off now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Almost done with everything, only the beginning of the red thingy (lower boundary) is off now." />
   </component>
 </project>

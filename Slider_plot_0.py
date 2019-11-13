@@ -60,7 +60,7 @@ def y_data_high(single_try_big, single_try_small, w_rate):
     return prices_high
 
 
-last_backup = backups[-1].date
+last_backup = datetime.datetime.strptime(first_backup_date, '%m/%d/%Y')
 
 
 def y_data_low(w_rate):
@@ -102,7 +102,7 @@ def data_random(point_generator, points_count):
 
 
 disaster_date = backups[-1].date.strftime('%m/%d/%Y')
-a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, init_price_big, disaster_date, backups, 6/8)
+a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, init_price_big, disaster_date, backups, 1/4)
 random_data = data_random(a, days - 4)
 
 # Plotting the data

@@ -24,11 +24,14 @@ class Backup_cost:
     # returns the difference in days and the number of unsuccessful backups from the respective types
     def data_loss_info(self):
         info = []  # info[0] is the success state of the recovery, info[1] is the successful backup date or "nada"
+        # info[2] is the number of small backups, info[3]- the same for big backups and info[5]-the type of
+        # successful backup, if any
         number_of_backups = len(self.backups)
         i = 0
         success = 0
         fail_counter_small = 0
         fail_counter_big = 0
+        success_type = None
         while success == 0:
             if self.backups[i].date < self.disaster_date:
                 info = self.recovery_attempt(self.backups[i].date)
@@ -37,10 +40,10 @@ class Backup_cost:
                 print("success state:", success)
                 if self.backups[i].backup_type == "small" and success == 0:
                     fail_counter_small += 1
-                    print("fail small")
                 if self.backups[i].backup_type == "big" and success == 0:
                     fail_counter_big += 1
-                    print("fail big")
+                if success == 1:
+                    success_type = self.backups[i].backup_type
             else:
                 print(self.backups[i].date, "does not exist yet")
             if i == number_of_backups - 1 and success == 0:
@@ -49,6 +52,7 @@ class Backup_cost:
             i += 1
         info.append(fail_counter_small)
         info.append(fail_counter_big)
+        info.append(success_type)
         return info
 
     def time_delta(self, recovery_date):
@@ -61,16 +65,21 @@ class Backup_cost:
             backup_delta = self.time_delta(new_info[1])
             total = backup_delta.days*self.work_rate + new_info[2] * self.single_try_small + new_info[3] * self.single_try_big
             print("total recovery price:", total, '\n', "number of fails:", new_info[2] + new_info[3], '\n')
-            return [backup_delta, total]
+            return [backup_delta, total, new_info[4]]
         if new_info[0] == 0:
             print("Pay the ransom if data value is less", '\n')
-            return [0, -100]
+            return [0, -100, new_info[4]]
 
     def point(self):
+        global color
+        info = self.backup_price_total()
         x = self.disaster_date
-        y = self.backup_price_total()[1]
-        if y == -100:
+        y = info[1]
+        success_type = info[2]
+        if success_type is None:
             color = "red"
-        else:
+        elif success_type == 'big':
             color = "blue"
+        elif success_type == 'small':
+            color = "green"
         return [x, y, color]

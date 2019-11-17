@@ -5,20 +5,28 @@ import datetime
 class Backup_cost:
     info = []
 
-    def __init__(self, work_rate, single_try_small, single_try_big, disaster_date, backups, fail_prob):
+    def __init__(self, work_rate, single_try_small, single_try_big, disaster_date, backups, fail_prob_small, fail_prob_big):
         self.work_rate = work_rate
         self.disaster_date = datetime.datetime.strptime(disaster_date, '%m/%d/%Y')
         self.backups = backups
-        self.prob = fail_prob
+        self.fail_prob_small = fail_prob_small
         self.single_try_small = single_try_small
         self.single_try_big = single_try_big
+        self.fail_prob_big = fail_prob_big
 
-    def recovery_attempt(self, backup_date):
-        success = np.random.choice([1, 0], 1, p=[1 - self.prob, self.prob])
-        if success == 1:
-            return [success, backup_date]
-        else:
-            return [success, None]
+    def recovery_attempt(self, backup):
+        if backup.backup_type == "small":
+            success = np.random.choice([1, 0], 1, p=[1 - self.fail_prob_small, self.fail_prob_small])
+            if success == 1:
+                return [success, backup.date]
+            else:
+                return [success, None]
+        if backup.backup_type == "big":
+            success = np.random.choice([1, 0], 1, p=[1 - self.fail_prob_big, self.fail_prob_big])
+            if success == 1:
+                return [success, backup.date]
+            else:
+                return [success, None]
 
     # calculates the difference between the successful backup date and the disaster date in dates
     # returns the difference in days and the number of unsuccessful backups from the respective types
@@ -34,7 +42,7 @@ class Backup_cost:
         success_type = None
         while success == 0:
             if self.backups[i].date < self.disaster_date:
-                info = self.recovery_attempt(self.backups[i].date)
+                info = self.recovery_attempt(self.backups[i])
                 success = info[0]
                 print("tried with backup date:", self.backups[i].date)
                 print("success state:", success)
@@ -60,6 +68,7 @@ class Backup_cost:
         return time_passed
 
     def backup_price_total(self):
+        print("disaster date:", self.disaster_date)
         new_info = self.data_loss_info()
         if new_info[0] == 1:
             backup_delta = self.time_delta(new_info[1])

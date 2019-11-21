@@ -10,7 +10,7 @@ class Backup:
     def __init__(self):
         self.probability = float(input("Fail prob: "))
         self.price = int(input('Recovery price: '))
-        self.interval = int(input("Interval:"))
+        self.interval = int(input("Interval: "))
 
 
 def set_globals(days_to_first_backup, w_rate):

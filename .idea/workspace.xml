@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Math_plot_2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math_plot_2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Mathematical_function_backups.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mathematical_function_backups.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -317,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574361475147</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Fighting with 3d graph, done fighting for now.">
+      <created>1574367996302</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1574367996302</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -370,6 +377,7 @@
     <MESSAGE value="Done, with the coloring too. Two types of backups visualized." />
     <MESSAGE value="Don't know what is happening. Trying to get the math model calculated" />
     <MESSAGE value="Managed to get a graph from the math function. Still working on multiple graphs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Managed to get a graph from the math function. Still working on multiple graphs." />
+    <MESSAGE value="Fighting with 3d graph, done fighting for now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fighting with 3d graph, done fighting for now." />
   </component>
 </project>

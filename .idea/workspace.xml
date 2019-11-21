@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math_plot_2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mathematical_function_backups.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mathematical_function_backups.py" afterDir="false" />
@@ -310,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574332477241</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Managed to get a graph from the math function. Still working on multiple graphs.">
+      <created>1574361475147</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1574361475147</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -362,6 +369,7 @@
     <MESSAGE value="Still not ready but certainly better." />
     <MESSAGE value="Done, with the coloring too. Two types of backups visualized." />
     <MESSAGE value="Don't know what is happening. Trying to get the math model calculated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Don't know what is happening. Trying to get the math model calculated" />
+    <MESSAGE value="Managed to get a graph from the math function. Still working on multiple graphs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Managed to get a graph from the math function. Still working on multiple graphs." />
   </component>
 </project>

@@ -23,12 +23,17 @@ import Mathematical_function_backups as math
 math.setting_the_constants()
 x_data = []
 y_data = []
+z_data = []
 for k in range(100):
+    math.set_globals(30, 50 + 3*k)
     x_data.append(k)
     y_data.append(math.expected_price(k))
-print(x_data)
-print(y_data)
-plt.plot(x_data, y_data)
-name = 'Math_plot_' + str(k) + '.png'
-plt.savefig(name, bbox_inches='tight')
+    z_data.append(50 + 3*k)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.set_xlabel("Time from first backup")
+ax.set_ylabel("Expected price")
+ax.set_zlabel("Work rate")
+ax.plot_wireframe(x_data, y_data, z_data)
+plt.show()
 

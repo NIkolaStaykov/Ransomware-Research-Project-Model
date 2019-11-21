@@ -1,6 +1,5 @@
 import numpy as np
 
-
 full = 0
 incremental = 0
 not_backed = 10  # int(input("Not backed: "))
@@ -12,6 +11,12 @@ class Backup:
         self.probability = float(input("Fail prob: "))
         self.price = int(input('Recovery price: '))
         self.interval = int(input("Interval:"))
+
+
+def set_globals(days_to_first_backup, w_rate):
+    global work_rate, not_backed
+    work_rate = w_rate
+    not_backed = days_to_first_backup
 
 
 def setting_the_constants():

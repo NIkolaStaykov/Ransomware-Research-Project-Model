@@ -122,3 +122,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/HTML_codes_incremental_stages.txt

@@ -4,10 +4,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="Done, with the coloring too. Two types of backups visualized.">
-      <change afterPath="$PROJECT_DIR$/HTML_codes_incremental_stages.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mathematical_function_backups.py" afterDir="false" />
+    <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mathematical_function_backups.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mathematical_function_backups.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +54,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Mathematical_function_backups">
+  <component name="RunManager" selected="Python.Model">
     <configuration name="Backup_cost" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Py Model" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -302,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573684952093</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Don't know what is happening. Trying to get the math model calculated">
+      <created>1574332477241</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1574332477241</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -353,6 +361,7 @@
     <MESSAGE value="Almost done with everything, only the beginning of the red thingy (lower boundary) is off now." />
     <MESSAGE value="Still not ready but certainly better." />
     <MESSAGE value="Done, with the coloring too. Two types of backups visualized." />
-    <option name="LAST_COMMIT_MESSAGE" value="Done, with the coloring too. Two types of backups visualized." />
+    <MESSAGE value="Don't know what is happening. Trying to get the math model calculated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Don't know what is happening. Trying to get the math model calculated" />
   </component>
 </project>

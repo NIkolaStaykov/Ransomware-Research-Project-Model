@@ -46,7 +46,7 @@ class Backup_cost:
             if self.backups[i].date < self.disaster_date and self.backups[i].backup_type == "big":
                 full_info = self.recovery_attempt(self.backups[i])
                 success = full_info[0]
-                print("tried with backup date:", self.backups[i].date)
+                print("tried with full backup date:", self.backups[i].date)
                 print("success state:", success)
                 if success == 0:
                     fail_counter_big += 1
@@ -54,7 +54,7 @@ class Backup_cost:
                     success_type = self.backups[i].backup_type
                     info.append(1)
                     info.append(self.backups[i].date)
-                    print("Full successful recovery date: ", success_type, self.backups[i].date)
+                    print("Full successful recovery date: ", success_type, full_info[1])
             elif self.backups[i].date < self.disaster_date and self.backups[i].backup_type == "small":
                 print(self.backups[i].date, "Small backup, ignore for now")
             else:
@@ -69,14 +69,19 @@ class Backup_cost:
         # Incremental backups operation
         if success == 1:
             i -= 2
+            print("Tried with inc backup date:", self.backups[i].backup_type, self.backups[i].date)
             while success == 1 and self.backups[i].backup_type == 'small':
                 inc_info = self.recovery_attempt(self.backups[i])
                 success = inc_info[0]
+                print("success state", success)
                 fail_counter_small += 1
                 i -= 1
                 if success == 0:
                     info[1] = self.backups[i+1].date
+                if success == 1 and self.backups[i+1].date != full_info[1]:
+                    success_type = "small"
         print("failed incremental count:", fail_counter_small)
+        print("Last successful backup:", info[1])
         print("failed full count:", fail_counter_big)
         info.append(fail_counter_small)
         info.append(fail_counter_big)

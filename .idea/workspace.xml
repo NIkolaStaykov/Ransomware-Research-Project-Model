@@ -7,6 +7,7 @@
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup_cost.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backup_cost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slider_plot_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slider_plot_0.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -322,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574367996302</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="At least it builds the graphic, still many bugs to fix.">
+      <created>1574426690914</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1574426690914</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -376,6 +384,7 @@
     <MESSAGE value="Don't know what is happening. Trying to get the math model calculated" />
     <MESSAGE value="Managed to get a graph from the math function. Still working on multiple graphs." />
     <MESSAGE value="Fighting with 3d graph, done fighting for now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fighting with 3d graph, done fighting for now." />
+    <MESSAGE value="At least it builds the graphic, still many bugs to fix." />
+    <option name="LAST_COMMIT_MESSAGE" value="At least it builds the graphic, still many bugs to fix." />
   </component>
 </project>

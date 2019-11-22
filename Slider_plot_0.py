@@ -118,6 +118,7 @@ prices_1 = y_data_low(initial_work_rate)
 k, = plt.plot(dates_datetime, prices_1, color='red', lw=1.2)
 
 m = plt.scatter(random_data[0], random_data[1], color=random_data[2], lw=1.2)
+# ax.legend()
 ax.margins(x=0)
 date_form = DateFormatter("%m/%d")
 ax.xaxis.set_major_formatter(date_form)

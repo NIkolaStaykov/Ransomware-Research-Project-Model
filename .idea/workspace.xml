@@ -330,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574426690914</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Regular commit">
+      <created>1574427956443</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1574427956443</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -385,6 +392,7 @@
     <MESSAGE value="Managed to get a graph from the math function. Still working on multiple graphs." />
     <MESSAGE value="Fighting with 3d graph, done fighting for now." />
     <MESSAGE value="At least it builds the graphic, still many bugs to fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="At least it builds the graphic, still many bugs to fix." />
+    <MESSAGE value="Regular commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Regular commit" />
   </component>
 </project>

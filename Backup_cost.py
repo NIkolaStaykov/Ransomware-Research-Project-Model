@@ -69,19 +69,23 @@ class Backup_cost:
         # Incremental backups operation
         if success == 1:
             i -= 2
-            print("Tried with inc backup date:", self.backups[i].backup_type, self.backups[i].date)
-            while success == 1 and self.backups[i].backup_type == 'small':
+            while success == 1 and self.backups[i].backup_type == 'small' and self.disaster_date > self.backups[i].date:
                 inc_info = self.recovery_attempt(self.backups[i])
                 success = inc_info[0]
-                print("success state", success)
+                print("Tried with inc backup date:", self.backups[i].backup_type, self.backups[i].date)
+                print("success state:", success)
                 fail_counter_small += 1
-                i -= 1
                 if success == 0:
                     info[1] = self.backups[i+1].date
                 if success == 1 and self.backups[i+1].date != full_info[1]:
                     success_type = "small"
+                if success == 1 and self.backups[i-1].backup_type == 'big':
+                    info[1] = self.backups[i].date
+                i -= 1
+
+        # formatting return data
         print("failed incremental count:", fail_counter_small)
-        print("Last successful backup:", info[1])
+        print("Last successful backup:", info[1], success_type)
         print("failed full count:", fail_counter_big)
         info.append(fail_counter_small)
         info.append(fail_counter_big)
@@ -98,7 +102,7 @@ class Backup_cost:
         if new_info[0] == 1:
             backup_delta = self.time_delta(new_info[1])
             total = backup_delta.days*self.work_rate + new_info[2] * self.single_try_small + new_info[3] * self.single_try_big
-            print("total recovery price:", total, '\n', "number of fails:", new_info[2] + new_info[3], '\n')
+            print("total recovery price:", total, '\n')
             return [backup_delta, total, new_info[4]]
         if new_info[0] == 0:
             print("Pay the ransom if data value is less", '\n')

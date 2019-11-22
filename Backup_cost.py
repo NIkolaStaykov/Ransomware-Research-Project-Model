@@ -32,7 +32,7 @@ class Backup_cost:
     # returns the difference in days and the number of unsuccessful backups from the respective types
     def data_loss_info(self):
         info = []  # info[0] is the success state of the recovery, info[1] is the successful backup date or "nada"
-        # info[2] is the number of small backups, info[3]- the same for big backups and info[5]-the type of
+        # info[2] is the number of small backups, info[3]- the same for big backups and info[4]-the type of
         # successful backup, if any
         number_of_backups = len(self.backups)
         i = 0
@@ -40,24 +40,44 @@ class Backup_cost:
         fail_counter_small = 0
         fail_counter_big = 0
         success_type = None
+
+        # Full backup operation
         while success == 0:
-            if self.backups[i].date < self.disaster_date:
-                info = self.recovery_attempt(self.backups[i])
-                success = info[0]
+            if self.backups[i].date < self.disaster_date and self.backups[i].backup_type == "big":
+                full_info = self.recovery_attempt(self.backups[i])
+                success = full_info[0]
                 print("tried with backup date:", self.backups[i].date)
                 print("success state:", success)
-                if self.backups[i].backup_type == "small" and success == 0:
-                    fail_counter_small += 1
-                if self.backups[i].backup_type == "big" and success == 0:
+                if success == 0:
                     fail_counter_big += 1
                 if success == 1:
                     success_type = self.backups[i].backup_type
+                    info.append(1)
+                    info.append(self.backups[i].date)
+                    print("Full successful recovery date: ", success_type, self.backups[i].date)
+            elif self.backups[i].date < self.disaster_date and self.backups[i].backup_type == "small":
+                print(self.backups[i].date, "Small backup, ignore for now")
             else:
-                print(self.backups[i].date, "does not exist yet")
+                print(self.backups[i].date, "Does not exist yet")
             if i == number_of_backups - 1 and success == 0:
+                info.append(0)
+                info.append(None)
                 print("Couldn't restore data")
                 break
             i += 1
+
+        # Incremental backups operation
+        if success == 1:
+            i -= 2
+            while success == 1 and self.backups[i].backup_type == 'small':
+                inc_info = self.recovery_attempt(self.backups[i])
+                success = inc_info[0]
+                fail_counter_small += 1
+                i -= 1
+                if success == 0:
+                    info[1] = self.backups[i+1].date
+        print("failed incremental count:", fail_counter_small)
+        print("failed full count:", fail_counter_big)
         info.append(fail_counter_small)
         info.append(fail_counter_big)
         info.append(success_type)
@@ -80,7 +100,8 @@ class Backup_cost:
             return [0, -100, new_info[4]]
 
     def point(self):
-        global color
+        color = 0
+        colors = ['#42DE20', '#39C01B', '#309F17', '#288314', '#226D11', '#174E0B', '#114007']
         info = self.backup_price_total()
         x = self.disaster_date
         y = info[1]

@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup_cost.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backup_cost.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Slider_plot_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slider_plot_0.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -344,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574433055445</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Finished with monte carlo simulation.">
+      <created>1574443672877</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1574443672877</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -375,7 +381,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Made some progress on the paper" />
     <MESSAGE value="Started the main file" />
     <MESSAGE value="Finished error function in main" />
     <MESSAGE value="Backup_cost reg commit. Still not finished with date formatting." />
@@ -400,6 +405,7 @@
     <MESSAGE value="At least it builds the graphic, still many bugs to fix." />
     <MESSAGE value="Regular commit" />
     <MESSAGE value="Reg commit, a little more and I'm done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reg commit, a little more and I'm done" />
+    <MESSAGE value="Finished with monte carlo simulation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished with monte carlo simulation." />
   </component>
 </project>

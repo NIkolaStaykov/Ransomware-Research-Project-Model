@@ -102,7 +102,7 @@ def data_random(point_generator, points_count):
 
 
 disaster_date = backups[-1].date.strftime('%m/%d/%Y')
-a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, init_price_big, disaster_date, backups, 0.5, 1/3)
+a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, init_price_big, disaster_date, backups, 0.19, 1/3)
 random_data = data_random(a, days-4)
 
 # Plotting the data

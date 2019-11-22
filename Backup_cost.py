@@ -38,7 +38,7 @@ class Backup_cost:
         i = 0
         success = 0
         fail_counter_small = 0
-        fail_counter_big = 0
+        counter_big = 0
         success_type = None
 
         # Full backup operation
@@ -48,8 +48,7 @@ class Backup_cost:
                 success = full_info[0]
                 print("tried with full backup date:", self.backups[i].date)
                 print("success state:", success)
-                if success == 0:
-                    fail_counter_big += 1
+                counter_big += 1
                 if success == 1:
                     success_type = self.backups[i].backup_type
                     info.append(1)
@@ -69,6 +68,8 @@ class Backup_cost:
         # Incremental backups operation
         if success == 1:
             i -= 2
+            print("First incremental", self.backups[i].date)
+            print("Disaster date", self.disaster_date)
             while success == 1 and self.backups[i].backup_type == 'small' and self.disaster_date > self.backups[i].date:
                 inc_info = self.recovery_attempt(self.backups[i])
                 success = inc_info[0]
@@ -77,18 +78,18 @@ class Backup_cost:
                 fail_counter_small += 1
                 if success == 0:
                     info[1] = self.backups[i+1].date
-                if success == 1 and self.backups[i+1].date != full_info[1]:
+                if inc_info[0] == 1:
                     success_type = "small"
                 if success == 1 and self.backups[i-1].backup_type == 'big':
                     info[1] = self.backups[i].date
                 i -= 1
 
         # formatting return data
-        print("failed incremental count:", fail_counter_small)
+        print("Incremental count:", fail_counter_small)
         print("Last successful backup:", info[1], success_type)
-        print("failed full count:", fail_counter_big)
+        print("failed full count:", counter_big)
         info.append(fail_counter_small)
-        info.append(fail_counter_big)
+        info.append(counter_big)
         info.append(success_type)
         return info
 
@@ -99,26 +100,28 @@ class Backup_cost:
     def backup_price_total(self):
         print("disaster date:", self.disaster_date)
         new_info = self.data_loss_info()
+        print(new_info)
         if new_info[0] == 1:
             backup_delta = self.time_delta(new_info[1])
-            total = backup_delta.days*self.work_rate + new_info[2] * self.single_try_small + new_info[3] * self.single_try_big
+            total = backup_delta.days * self.work_rate + new_info[2] * self.single_try_small + new_info[3] * self.single_try_big
             print("total recovery price:", total, '\n')
-            return [backup_delta, total, new_info[4]]
+            return [total, new_info[4], new_info[2]]
         if new_info[0] == 0:
             print("Pay the ransom if data value is less", '\n')
-            return [0, -100, new_info[4]]
+            price = ((self.disaster_date - self.backups[-1].date).days + 20) * self.work_rate + self.single_try_big * new_info[3]
+            return [price, new_info[4]]
 
     def point(self):
         color = 0
         colors = ['#42DE20', '#39C01B', '#309F17', '#288314', '#226D11', '#174E0B', '#114007']
         info = self.backup_price_total()
         x = self.disaster_date
-        y = info[1]
-        success_type = info[2]
+        y = info[0]
+        success_type = info[1]
         if success_type is None:
             color = "red"
         elif success_type == 'big':
             color = "blue"
         elif success_type == 'small':
-            color = "green"
+            color = colors[info[2]]
         return [x, y, color]

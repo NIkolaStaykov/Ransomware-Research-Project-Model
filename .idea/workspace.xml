@@ -337,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574427956443</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Reg commit, a little more and I'm done">
+      <created>1574433055445</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1574433055445</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -368,7 +375,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Made the error function adequate, code looks good now" />
     <MESSAGE value="Made some progress on the paper" />
     <MESSAGE value="Started the main file" />
     <MESSAGE value="Finished error function in main" />
@@ -393,6 +399,7 @@
     <MESSAGE value="Fighting with 3d graph, done fighting for now." />
     <MESSAGE value="At least it builds the graphic, still many bugs to fix." />
     <MESSAGE value="Regular commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Regular commit" />
+    <MESSAGE value="Reg commit, a little more and I'm done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reg commit, a little more and I'm done" />
   </component>
 </project>

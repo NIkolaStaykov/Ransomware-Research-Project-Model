@@ -2,7 +2,7 @@ import numpy as np
 
 full = 0
 incremental = 0
-not_backed = 5  # int(input("Not backed: "))
+not_backed = 10  # int(input("Not backed: "))
 work_rate = 300  # int(input("Work rate: "))
 
 
@@ -46,10 +46,9 @@ def incremental_count(days_from_success_full):
 def incremental_cost(days_from_succ_full):
     global incremental, full, work_rate
     l = int(incremental_count(days_from_succ_full))
-    price = pow(1-incremental.probability, l)*((full.interval - incremental.interval*l)*work_rate + incremental.price*l)
+    price = pow(1-incremental.probability, l)*((days_from_succ_full - incremental.interval*l)*work_rate + incremental.price*l)
     for i in range(l):
         price += pow(1-incremental.probability, i)*incremental.probability*((days_from_succ_full - incremental.interval * i) * work_rate + incremental.price * (i + 1))
-        print(i, "Incremental cost", price)
     return price
 
 

@@ -3,8 +3,7 @@
 #
 #
 # sim = md.Simulation(200, 690, 130, 5, 0, 3)
-# str1 = input("Price: ")
-# ransom_value = int(str1)
+# ransom_value = int(input("Price: "))
 # str1 = input("Acceptable Error: ")
 # error_boundary = float(str1)
 # error_boundary = error_boundary/1000
@@ -26,18 +25,20 @@ y_data = []
 z_data = []
 for k in range(100):
     # math.set_globals(30, 50 + 3*k)
-    print('\n', "Days from beginning", k)
+    # print('\n', "Days from beginning", k)
     x_data.append(k)
     y_data.append(math.expected_price(k))
     z_data.append(math.only_full_price(k))
 # fig = plt.figure()
 # ax = fig.add_subplot(11)
-plt.xlabel("Time from first backup")
-plt.ylabel("Expected price")
-# plt.zlabel("Work rate")
-# ax.plot_wireframe(x_data, y_data, z_data)
-for i in range(len(y_data)-1):
-    print("x=", x_data[i], '\t', "y=", y_data[i], "only full:", z_data[i])
-plt.plot(x_data, y_data)
+fig, ax_1 = plt.subplots()
+ax_1.set_xlabel("Time from first backup")
+ax_1.set_ylabel("Expected price")
+# for i in range(len(y_data)-1):
+#     if z_data[i] > y_data[i]:
+#         print("x=", x_data[i], '\t', "y=", y_data[i], "only full:", z_data[i])
+ax_1.plot(x_data, y_data, color="#097A5E", label='With Incremental')
+ax_1.plot(x_data, z_data, color="#A02A2A", label='Full backups only')
+fig.legend()
 plt.show()
 

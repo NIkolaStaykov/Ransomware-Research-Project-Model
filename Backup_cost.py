@@ -108,20 +108,20 @@ class Backup_cost:
             return [total, new_info[4], new_info[2]]
         if new_info[0] == 0:
             print("Pay the ransom if data value is less", '\n')
-            price = ((self.disaster_date - self.backups[-1].date).days + 20) * self.work_rate + self.single_try_big * new_info[3]
+            price = ((self.disaster_date - self.backups[-1].date).days + 10) * self.work_rate + self.single_try_big * new_info[3]
             return [price, new_info[4]]
 
     def point(self):
         color = 0
-        colors = ['#42DE20', '#39C01B', '#309F17', '#288314', '#226D11', '#174E0B', '#114007']
+        colors = [50, 55, 60, 65, 70, 75, 80]
         info = self.backup_price_total()
         x = self.disaster_date
         y = info[0]
         success_type = info[1]
         if success_type is None:
-            color = "red"
+            color = 0
         elif success_type == 'big':
-            color = "blue"
+            color = 30
         elif success_type == 'small':
             color = colors[info[2]]
         return [x, y, color]

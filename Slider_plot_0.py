@@ -4,6 +4,7 @@ from matplotlib.widgets import Slider, Button
 import datetime
 import Backup_cost
 from matplotlib.dates import DateFormatter
+import matplotlib.collections
 
 # take user input for parameters needed
 days = int(input("Days to visualize:"))
@@ -91,6 +92,7 @@ def data_random(point_generator, points_count):
     y_data_rand = []
     x_data_rand = []
     colors = []
+    labels = []
     for n in range(points_count):
         point_generator.disaster_date += datetime.timedelta(days=1)
         for r in range(3):
@@ -102,23 +104,26 @@ def data_random(point_generator, points_count):
 
 
 disaster_date = backups[-1].date.strftime('%m/%d/%Y')
-a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, init_price_big, disaster_date, backups, 0.19, 1/3)
+a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, init_price_big, disaster_date, backups, 0.12, 0.19)
 random_data = data_random(a, days-4)
+
 
 # Plotting the data
 fig, ax = plt.subplots()
 plt.subplots_adjust(left=0.15, bottom=0.3)
 
 prices = y_data_high(init_price_big, init_price_small, initial_work_rate)
-l, = plt.plot(dates_datetime, prices, lw=1.2)
-plt.xlabel("Disaster date")
-plt.ylabel("Backup price")
+l, = ax.plot(dates_datetime, prices, lw=1.2)
+ax.set_xlabel("Disaster date")
+ax.set_ylabel("Backup price")
 
 prices_1 = y_data_low(initial_work_rate)
-k, = plt.plot(dates_datetime, prices_1, color='red', lw=1.2)
+k, = ax.plot(dates_datetime, prices_1, color='red', lw=1.2)
 
-m = plt.scatter(random_data[0], random_data[1], color=random_data[2], lw=1.2)
-# ax.legend()
+scatter = ax.scatter(random_data[0], random_data[1], c=random_data[2], lw=1.2, s=15)
+legend1 = ax.legend(*scatter.legend_elements(),
+                    loc="upper right", title="Type of recovery")
+ax.add_artist(legend1)
 ax.margins(x=0)
 date_form = DateFormatter("%m/%d")
 ax.xaxis.set_major_formatter(date_form)
@@ -129,9 +134,9 @@ ax_color = 'lightgoldenrodyellow'
 ax_work_rate = plt.axes([0.25, 0.15, 0.65, 0.03], facecolor=ax_color)
 ax_price_big = plt.axes([0.25, 0.10, 0.65, 0.03], facecolor=ax_color)
 ax_price_small = plt.axes([0.25, 0.05, 0.65, 0.03], facecolor=ax_color)
-s_work_rate = Slider(ax_work_rate, 'Work Rate', 0, 300.0, valinit=initial_work_rate)
-s_price_big = Slider(ax_price_big, 'Big backup price', 0, 120.0, valinit=init_price_big, valstep=2)
-s_price_small = Slider(ax_price_small, 'Small backup price', 0, 130.0, valinit=init_price_small, valstep=2, slidermax=s_price_big)
+s_work_rate = Slider(ax_work_rate, 'Work Rate', 0, 500.0, valinit=initial_work_rate)
+s_price_big = Slider(ax_price_big, 'Big backup price', 0, 130.0, valinit=init_price_big, valstep=1)
+s_price_small = Slider(ax_price_small, 'Small backup price', 0, 130.0, valinit=init_price_small, valstep=1, slidermax=s_price_big)
 
 
 # The update function for the sliders
@@ -157,7 +162,7 @@ def reset(event):
 
 
 reset_ax = plt.axes([0.8, 0.01, 0.1, 0.04])
-button = Button(reset_ax, 'Reset', color=ax_color, hovercolor='0.975')
+button = Button(reset_ax, 'Reset', color=ax_color, hovercolor='0.55')
 button.on_clicked(reset)
 
 plt.show()

@@ -26,15 +26,18 @@ y_data = []
 z_data = []
 for k in range(100):
     # math.set_globals(30, 50 + 3*k)
+    print('\n', "Days from beginning", k)
     x_data.append(k)
     y_data.append(math.expected_price(k))
-    z_data.append(50 + 3*k)
+    z_data.append(math.only_full_price(k))
 # fig = plt.figure()
 # ax = fig.add_subplot(11)
 plt.xlabel("Time from first backup")
 plt.ylabel("Expected price")
 # plt.zlabel("Work rate")
 # ax.plot_wireframe(x_data, y_data, z_data)
+for i in range(len(y_data)-1):
+    print("x=", x_data[i], '\t', "y=", y_data[i], "only full:", z_data[i])
 plt.plot(x_data, y_data)
 plt.show()
 

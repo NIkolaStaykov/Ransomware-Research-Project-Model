@@ -2,8 +2,8 @@ import numpy as np
 
 full = 0
 incremental = 0
-not_backed = 10  # int(input("Not backed: "))
-work_rate = 50  # int(input("Work rate: "))
+not_backed = 5  # int(input("Not backed: "))
+work_rate = 300  # int(input("Work rate: "))
 
 
 class Backup:
@@ -35,10 +35,12 @@ def days_from_successful_full(number_of_fails, days_from_first):
 
 def incremental_count(days_from_success_full):
     global full, incremental
-    if full.interval < days_from_success_full:
-        return np.modf(full.interval/incremental.interval)[1] - 1
+    if full.interval <= days_from_success_full:
+        number = np.modf(full.interval/incremental.interval)[1]
+        return number
     else:
-        return np.modf(days_from_success_full/incremental.interval)[1]
+        number = np.modf(days_from_success_full/incremental.interval)[1]
+        return number
 
 
 def incremental_cost(days_from_succ_full):
@@ -47,6 +49,7 @@ def incremental_cost(days_from_succ_full):
     price = pow(1-incremental.probability, l)*((full.interval - incremental.interval*l)*work_rate + incremental.price*l)
     for i in range(l):
         price += pow(1-incremental.probability, i)*incremental.probability*((days_from_succ_full - incremental.interval * i) * work_rate + incremental.price * (i + 1))
+        print(i, "Incremental cost", price)
     return price
 
 
@@ -57,5 +60,16 @@ def expected_price(days_from_first_backup):
     full_backups_count = np.modf(x/full.interval)[1] + 1
     price = pow(full.probability, full_backups_count)*(work_total + full_backups_count*full.price)
     for i in range(int(full_backups_count)):
-        price += (1-full.probability)*pow(full.probability, i)*(incremental_cost(days_from_successful_full(i, x)) + i * full.price)
+        price += (1-full.probability)*pow(full.probability, i)*(incremental_cost(days_from_successful_full(i, x)) + (i + 1) * full.price)
+    return price
+
+
+def only_full_price(days_from_first_backup):
+    x = days_from_first_backup
+    global full, not_backed, work_rate
+    work_total = (x + not_backed) * work_rate
+    full_backups_count = np.modf(x / full.interval)[1] + 1
+    price = pow(full.probability, full_backups_count) * (work_total + full_backups_count * full.price)
+    for i in range(int(full_backups_count)):
+        price += (1-full.probability)*pow(full.probability, i)*((np.modf(days_from_first_backup/full.interval)[0] + i) * full.interval * work_rate + (i + 1)*full.price)
     return price

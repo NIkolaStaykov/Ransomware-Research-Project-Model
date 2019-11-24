@@ -4,11 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="Can clearly see that something is wrong with the math expression now, still fixing.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup_cost.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backup_cost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Slider_plot_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slider_plot_0.py" afterDir="false" />
-    </list>
+    <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -358,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574506897053</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Linear regression added to the carlo.">
+      <created>1574599873859</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1574599873859</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -389,7 +392,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Finished error function in main" />
     <MESSAGE value="Backup_cost reg commit. Still not finished with date formatting." />
     <MESSAGE value="Completed checks for backups with given prob." />
     <MESSAGE value="Now we have two kinds of backup. No idea what to do with probability." />
@@ -414,6 +416,7 @@
     <MESSAGE value="Reg commit, a little more and I'm done" />
     <MESSAGE value="Finished with monte carlo simulation." />
     <MESSAGE value="Can clearly see that something is wrong with the math expression now, still fixing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Can clearly see that something is wrong with the math expression now, still fixing." />
+    <MESSAGE value="Linear regression added to the carlo." />
+    <option name="LAST_COMMIT_MESSAGE" value="Linear regression added to the carlo." />
   </component>
 </project>

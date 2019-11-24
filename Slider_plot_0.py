@@ -92,10 +92,9 @@ def data_random(point_generator, points_count):
     y_data_rand = []
     x_data_rand = []
     colors = []
-    labels = []
     for n in range(points_count):
         point_generator.disaster_date += datetime.timedelta(days=1)
-        for r in range(3):
+        for r in range(5):
             point = point_generator.point()
             x_data_rand.append(point[0])
             y_data_rand.append(point[1])
@@ -106,6 +105,9 @@ def data_random(point_generator, points_count):
 disaster_date = backups[-1].date.strftime('%m/%d/%Y')
 a = Backup_cost.Backup_cost(initial_work_rate, init_price_small, init_price_big, disaster_date, backups, 0.12, 0.19)
 random_data = data_random(a, days-4)
+dates_numbers_fit = []
+for i in random_data[0]:
+    dates_numbers_fit.append((i-random_data[0][0]).days)
 
 
 # Plotting the data
@@ -124,6 +126,9 @@ scatter = ax.scatter(random_data[0], random_data[1], c=random_data[2], lw=1.2, s
 legend1 = ax.legend(*scatter.legend_elements(),
                     loc="upper right", title="Type of recovery")
 ax.add_artist(legend1)
+
+price_fit = np.polyfit(dates_numbers_fit, random_data[1], 1)
+ax.plot(random_data[0], np.array(dates_numbers_fit)*price_fit[0] + price_fit[1], color='darkblue')
 ax.margins(x=0)
 date_form = DateFormatter("%m/%d")
 ax.xaxis.set_major_formatter(date_form)

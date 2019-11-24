@@ -113,15 +113,15 @@ class Backup_cost:
 
     def point(self):
         color = 0
-        colors = [50, 55, 60, 65, 70, 75, 80]
+        colors = [0, 50, 40]
         info = self.backup_price_total()
         x = self.disaster_date
         y = info[0]
         success_type = info[1]
         if success_type is None:
-            color = 0
+            color = colors[0]
         elif success_type == 'big':
-            color = 30
+            color = colors[1]
         elif success_type == 'small':
-            color = colors[info[2]]
+            color = colors[2]
         return [x, y, color]

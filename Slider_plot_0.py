@@ -115,12 +115,12 @@ fig, ax = plt.subplots()
 plt.subplots_adjust(left=0.15, bottom=0.3)
 
 prices = y_data_high(init_price_big, init_price_small, initial_work_rate)
-l, = ax.plot(dates_datetime, prices, lw=1.2)
+l, = ax.plot(dates_datetime, prices, lw=1.2, label='Maximal price given recovery')
 ax.set_xlabel("Disaster date")
 ax.set_ylabel("Backup price")
 
 prices_1 = y_data_low(initial_work_rate)
-k, = ax.plot(dates_datetime, prices_1, color='red', lw=1.2)
+k, = ax.plot(dates_datetime, prices_1, color='red', lw=1.2, label='Lowest possible price')
 
 scatter = ax.scatter(random_data[0], random_data[1], c=random_data[2], lw=1.2, s=15)
 legend1 = ax.legend(*scatter.legend_elements(),
@@ -128,10 +128,11 @@ legend1 = ax.legend(*scatter.legend_elements(),
 ax.add_artist(legend1)
 
 price_fit = np.polyfit(dates_numbers_fit, random_data[1], 1)
-ax.plot(random_data[0], np.array(dates_numbers_fit)*price_fit[0] + price_fit[1], color='darkblue')
+ax.plot(random_data[0], np.array(dates_numbers_fit)*price_fit[0] + price_fit[1], color='darkblue', label='Linear regression')
 ax.margins(x=0)
 date_form = DateFormatter("%m/%d")
 ax.xaxis.set_major_formatter(date_form)
+ax.legend()
 
 
 # Setting up the sliders

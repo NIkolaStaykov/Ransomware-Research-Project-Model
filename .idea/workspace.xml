@@ -4,8 +4,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mathematical_function_backups.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mathematical_function_backups.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,19 +40,7 @@
       <recent name="C:\Project CKY\Py Model" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.Slider_plot_0">
+  <component name="RunManager" selected="Python.Model">
     <configuration name="Backup_cost" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Py Model" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -146,6 +137,18 @@
         <item itemvalue="Python.Backup_cost" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -361,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574599873859</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Linear regression added to the carlo updated.">
+      <created>1574707206285</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1574707206285</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -392,7 +402,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Backup_cost reg commit. Still not finished with date formatting." />
     <MESSAGE value="Completed checks for backups with given prob." />
     <MESSAGE value="Now we have two kinds of backup. No idea what to do with probability." />
     <MESSAGE value="Tried to turn in into a class, update function of slider didn't agree." />
@@ -417,6 +426,29 @@
     <MESSAGE value="Finished with monte carlo simulation." />
     <MESSAGE value="Can clearly see that something is wrong with the math expression now, still fixing." />
     <MESSAGE value="Linear regression added to the carlo." />
-    <option name="LAST_COMMIT_MESSAGE" value="Linear regression added to the carlo." />
+    <MESSAGE value="Linear regression added to the carlo updated." />
+    <option name="LAST_COMMIT_MESSAGE" value="Linear regression added to the carlo updated." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575579112918">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1575579112918" />
+    <state width="778" height="196" key="GridCell.Tab.0.bottom" timestamp="1575581605656">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="778" height="196" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1575581605656" />
+    <state width="778" height="196" key="GridCell.Tab.0.center" timestamp="1575581605656">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="778" height="196" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1575581605656" />
+    <state width="778" height="196" key="GridCell.Tab.0.left" timestamp="1575581605656">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="778" height="196" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1575581605656" />
+    <state width="778" height="196" key="GridCell.Tab.0.right" timestamp="1575581605656">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="778" height="196" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1575581605656" />
   </component>
 </project>

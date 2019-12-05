@@ -7,10 +7,10 @@ work_rate = 300  # int(input("Work rate: "))
 
 
 class Backup:
-    def __init__(self):
-        self.probability = float(input("Fail prob: "))
-        self.price = int(input('Recovery price: '))
-        self.interval = int(input("Interval: "))
+    def __init__(self, prob, price, interval):
+        self.probability = prob  # float(input("Fail prob: "))
+        self.price = price  # int(input('Recovery price: '))
+        self.interval = interval  # int(input("Interval: "))
 
 
 def set_globals(days_to_first_backup, w_rate):
@@ -21,10 +21,8 @@ def set_globals(days_to_first_backup, w_rate):
 
 def setting_the_constants():
     global full, incremental
-    print("Full backup:")
-    full = Backup()
-    print("Incremental backup:")
-    incremental = Backup()
+    full = Backup(0.12, 50, 7)  # Setting full backup data
+    incremental = Backup(0.19, 40, 1)  # Setting incremental backup data
 
 
 def days_from_successful_full(number_of_fails, days_from_first):

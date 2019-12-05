@@ -23,7 +23,7 @@ math.setting_the_constants()
 x_data = []
 y_data = []
 z_data = []
-for k in range(100):
+for k in range(300):
     # math.set_globals(30, 50 + 3*k)
     # print('\n', "Days from beginning", k)
     x_data.append(k)
@@ -40,5 +40,13 @@ ax_1.set_ylabel("Expected price")
 ax_1.plot(x_data, y_data, color="#097A5E", label='With Incremental')
 ax_1.plot(x_data, z_data, color="#A02A2A", label='Full backups only')
 fig.legend()
-plt.show()
 
+# plotting a histogram
+fig2, ax_2 = plt.subplots()
+for i in range(10, 24, 1):
+    ax_2.cla()
+    ax_2.set_xlabel("Recovery price")
+    ax_2.set_ylabel("Number of recoveries")
+    name = "Histogram_" + str(i) + ".png"
+    ax_2.hist(y_data, bins=i)
+    plt.savefig(name)

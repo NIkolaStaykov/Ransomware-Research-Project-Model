@@ -18,14 +18,14 @@
 
 import matplotlib.pyplot as plt
 import Mathematical_function_backups as math
+import numpy as np
 
 math.setting_the_constants()
 x_data = []
 y_data = []
 z_data = []
-for k in range(300):
+for k in range(1500):
     # math.set_globals(30, 50 + 3*k)
-    # print('\n', "Days from beginning", k)
     x_data.append(k)
     y_data.append(math.expected_price(k))
     z_data.append(math.only_full_price(k))
@@ -42,6 +42,7 @@ ax_1.plot(x_data, z_data, color="#A02A2A", label='Full backups only')
 fig.legend()
 
 # plotting a histogram
+"""
 fig2, ax_2 = plt.subplots()
 for i in range(10, 24, 1):
     ax_2.cla()
@@ -50,3 +51,17 @@ for i in range(10, 24, 1):
     name = "Histogram_" + str(i) + ".png"
     ax_2.hist(y_data, bins=i)
     plt.savefig(name)
+"""
+
+prices = []
+means = {}
+incremental_interval = {}
+for j in range(2, 14):
+    math.full.interval = j+1
+    for i in range(j):
+        math.incremental.interval = i+1
+        for k in range(500):
+            prices.append(math.expected_price(k))
+        incremental_interval[i] = np.mean(prices)
+    means[j] = incremental_interval
+print(means)

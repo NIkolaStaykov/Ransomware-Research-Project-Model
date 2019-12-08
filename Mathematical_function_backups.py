@@ -21,8 +21,8 @@ def set_globals(days_to_first_backup, w_rate):
 
 def setting_the_constants():
     global full, incremental
-    full = Backup(0.12, 50, 7)  # Setting full backup data
-    incremental = Backup(0.19, 40, 1)  # Setting incremental backup data
+    full = Backup(0.12, 50, -300)  # Setting full backup data
+    incremental = Backup(0.19, 40, -300)  # Setting incremental backup data
 
 
 def days_from_successful_full(number_of_fails, days_from_first):

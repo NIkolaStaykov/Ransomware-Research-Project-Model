@@ -171,4 +171,10 @@ reset_ax = plt.axes([0.8, 0.01, 0.1, 0.04])
 button = Button(reset_ax, 'Reset', color=ax_color, hovercolor='0.55')
 button.on_clicked(reset)
 
+# Histogram plotting
+fig1, ax = plt.subplots()
+ax.hist(random_data[1], bins=17)
+ax.set_xlabel("Recovery price")
+ax.set_ylabel("Number of recoveries")
+
 plt.show()

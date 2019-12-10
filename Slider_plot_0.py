@@ -173,7 +173,7 @@ button.on_clicked(reset)
 
 # Histogram plotting
 fig1, ax = plt.subplots()
-ax.hist(random_data[1], bins=17)
+ax.hist(random_data[1], bins=17, color="#384986")
 ax.set_xlabel("Recovery price")
 ax.set_ylabel("Number of recoveries")
 

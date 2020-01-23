@@ -7,7 +7,8 @@
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Slider_plot_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slider_plot_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mathematical_function_backups.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mathematical_function_backups.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +36,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Slider_playground.py" />
+    <property name="last_opened_file_path" value="C:/Py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -397,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575847706902</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Fixed some colors.">
+      <created>1576009766209</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1576009766209</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -428,7 +437,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Trying to ship the slider file with the random generator file. Still not ready." />
     <MESSAGE value="Managed to get a graph, just have to figure out what I'm graphing now." />
     <MESSAGE value="reg commit, almost finished with graphing random points" />
     <MESSAGE value="Looks pretty decent now, just have to figure out where the disorder comes from" />
@@ -453,32 +461,41 @@
     <MESSAGE value="Histogram plot added." />
     <MESSAGE value="Trying to scrape out results, changing backup intervals." />
     <MESSAGE value="Poster work done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Poster work done." />
+    <MESSAGE value="Fixed some colors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some colors." />
   </component>
   <component name="WindowStateProjectService">
     <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575579112918">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1575579112918" />
-    <state x="54" y="24" key="CommitChangelistDialog2" timestamp="1575847706219">
+    <state x="54" y="24" key="CommitChangelistDialog2" timestamp="1576009765436">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="54" y="24" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1575847706219" />
-    <state width="776" height="190" key="GridCell.Tab.0.bottom" timestamp="1576008675681">
+    <state x="54" y="24" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1576009765436" />
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1579624694927">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="776" height="190" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1576008675681" />
-    <state width="776" height="190" key="GridCell.Tab.0.center" timestamp="1576008675681">
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1579624694927" />
+    <state width="1579" height="192" key="GridCell.Tab.0.bottom" timestamp="1579769082489">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="776" height="190" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1576008675681" />
-    <state width="776" height="190" key="GridCell.Tab.0.left" timestamp="1576008675681">
+    <state width="1579" height="192" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579769082489" />
+    <state width="1579" height="192" key="GridCell.Tab.0.center" timestamp="1579769082489">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="776" height="190" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1576008675681" />
-    <state width="776" height="190" key="GridCell.Tab.0.right" timestamp="1576008675681">
+    <state width="1579" height="192" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1579769082489" />
+    <state width="1579" height="192" key="GridCell.Tab.0.left" timestamp="1579769082489">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="776" height="190" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1576008675681" />
+    <state width="1579" height="192" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1579769082489" />
+    <state width="1579" height="192" key="GridCell.Tab.0.right" timestamp="1579769082489">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1579" height="192" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1579769082489" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1579624687120">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1579624687120" />
   </component>
 </project>

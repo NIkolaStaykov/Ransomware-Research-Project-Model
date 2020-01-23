@@ -21,8 +21,8 @@ def set_globals(days_to_first_backup, w_rate):
 
 def setting_the_constants():
     global full, incremental
-    full = Backup(0.12, 50, 7)  # Setting full backup data
-    incremental = Backup(0.27, 40, 1)  # Setting incremental backup data
+    full = Backup(0.12, 750, 7)  # Setting full backup data
+    incremental = Backup(0.1, 150, 1)  # Setting incremental backup data
 
 
 def days_from_successful_full(number_of_fails, days_from_first):
@@ -50,7 +50,7 @@ def incremental_cost(days_from_succ_full):
     return price
 
 
-def expected_price(days_from_first_backup):
+def expected_recovery_price(days_from_first_backup):
     x = days_from_first_backup
     global full, incremental, not_backed, work_rate
     work_total = (x + not_backed)*work_rate
@@ -61,7 +61,7 @@ def expected_price(days_from_first_backup):
     return price
 
 
-def only_full_price(days_from_first_backup):
+def only_full_recovery_price(days_from_first_backup):
     x = days_from_first_backup
     global full, not_backed, work_rate
     work_total = (x + not_backed) * work_rate
@@ -70,3 +70,15 @@ def only_full_price(days_from_first_backup):
     for i in range(int(full_backups_count)):
         price += (1-full.probability)*pow(full.probability, i)*((np.modf(days_from_first_backup/full.interval)[0] + i) * full.interval * work_rate + (i + 1)*full.price)
     return price
+
+
+def storage_cost(days_from_first_backup):
+    global full, incremental, not_backed, work_rate
+    x = days_from_first_backup
+    constant = work_rate/50
+    full_backups_count = np.modf(x / full.interval)[1] + 1
+    delta = np.modf(x / full.interval)[0]
+    full_storage_cost = constant*full_backups_count*(x-full.interval*(full_backups_count-1)/2)
+    incremental_backups_count = (full_backups_count-1)*(np.modf(full.interval/incremental.interval)[1]-1) + np.modf(delta/incremental.interval)[1]-1
+    incremental_storage_cost = constant*incremental_backups_count
+    return full_storage_cost + incremental_storage_cost

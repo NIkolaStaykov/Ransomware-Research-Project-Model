@@ -84,8 +84,8 @@ class Simulation:
         return plt_left
 
     # Calculating the revenue
-    def revenue_function(self, x):
-        revenue = x * self.demand_function(x)
+    def revenue_function(self, price):
+        revenue = price * self.demand_function(price)
         return revenue
 
     def plot_revenue(self):

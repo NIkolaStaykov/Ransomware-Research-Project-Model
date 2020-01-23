@@ -59,21 +59,34 @@ means = {}
 x = []
 y = []
 z = []
-for j in range(1, 18):
+for j in range(3, 18):
     incremental_interval = {}
     math.full.interval = j+1
-    for i in range(j):
+    for i in range(1, j):
         math.incremental.interval = i+1
         prices = []
-        for k in range(200):
-            prices.append(math.expected_recovery_price(k)+math.storage_cost(k))
+        for k in range(1, 200):
+            prices.append(math.expected_recovery_price(k) + math.storage_cost(k))
         incremental_interval[i+1] = np.mean(prices)
-        x.append(j)
-        y.append(i)
+        x.append(j+1)
+        y.append(i+1)
         z.append(np.mean(prices))
     means[j+1] = incremental_interval
-    print(incremental_interval)
-    print()
+    print(min(incremental_interval.items(), key=lambda x: x[1]))
+
+
+# Single complete plot
+time = []
+pr = []
+math.full.interval = 12
+math.incremental.interval = 3
+for k in range(1, 100):
+    time.append(k)
+    pr.append(math.expected_recovery_price(k) + math.storage_cost(k))
+fig1, ax = plt.subplots()
+ax.plot(time, pr)
+ax.set_xlabel("Time")
+ax.set_ylabel("Price")
 
 # 3D plot
 fig = plt.figure()

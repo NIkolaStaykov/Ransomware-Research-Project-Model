@@ -2,8 +2,9 @@ import numpy as np
 
 full = 0
 incremental = 0
-not_backed = 10  # int(input("Not backed: "))
-work_rate = 300  # int(input("Work rate: "))
+not_backed = 2  # int(input("Not backed: "))
+work_rate = 1  # int(input("Work rate: "))
+storage_price = work_rate/1000
 
 
 class Backup:
@@ -20,9 +21,9 @@ def set_globals(days_to_first_backup, w_rate):
 
 
 def setting_the_constants():
-    global full, incremental
-    full = Backup(0.12, 750, 7)  # Setting full backup data
-    incremental = Backup(0.1, 150, 1)  # Setting incremental backup data
+    global full, incremental, work_rate
+    full = Backup(0.12, work_rate, 7)  # Setting full backup data
+    incremental = Backup(0.1, work_rate/2, 1)  # Setting incremental backup data
 
 
 def days_from_successful_full(number_of_fails, days_from_first):
@@ -73,12 +74,20 @@ def only_full_recovery_price(days_from_first_backup):
 
 
 def storage_cost(days_from_first_backup):
-    global full, incremental, not_backed, work_rate
+    global full, storage_price, incremental, not_backed, work_rate
     x = days_from_first_backup
-    constant = work_rate/50
+
     full_backups_count = np.modf(x / full.interval)[1] + 1
-    delta = np.modf(x / full.interval)[0]
-    full_storage_cost = constant*full_backups_count*(x-full.interval*(full_backups_count-1)/2)
-    incremental_backups_count = (full_backups_count-1)*(np.modf(full.interval/incremental.interval)[1]-1) + np.modf(delta/incremental.interval)[1]-1
-    incremental_storage_cost = constant*incremental_backups_count
+    full_storage_cost = 0
+    for i in range(int(full_backups_count)):
+        full_storage_cost += storage_price*(x - i*full.interval)*(i*full.interval + not_backed)
+
+    incremental_in_cycle = np.modf(full.interval/incremental.interval)[1]-1
+    cycle = 0
+    for i in range(1, int(incremental_in_cycle)):
+        cycle += incremental.interval*storage_price*(full.interval-i*incremental.interval)
+    incremental_storage_cost = 0
+    for k in range(1, int(full_backups_count)):
+        incremental_storage_cost += cycle + storage_price*(k-1)*incremental_in_cycle*full.interval
+
     return full_storage_cost + incremental_storage_cost

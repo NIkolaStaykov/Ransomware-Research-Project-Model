@@ -62,7 +62,7 @@ z = []
 for j in range(3, 18):
     incremental_interval = {}
     math.full.interval = j+1
-    for i in range(1, j):
+    for i in range(1, j+1):
         math.incremental.interval = i+1
         prices = []
         for k in range(1, 200):
@@ -72,7 +72,7 @@ for j in range(3, 18):
         y.append(i+1)
         z.append(np.mean(prices))
     means[j+1] = incremental_interval
-    print(min(incremental_interval.items(), key=lambda x: x[1]))
+    print("full interval:", j+1, min(incremental_interval.items(), key=lambda x: x[1]))
 
 
 # Single complete plot

@@ -4,7 +4,7 @@ full = 0
 incremental = 0
 not_backed = 2  # int(input("Not backed: "))
 work_rate = 1  # int(input("Work rate: "))
-storage_price = work_rate/1000
+storage_price = work_rate/4000
 
 
 class Backup:

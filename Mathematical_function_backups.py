@@ -4,7 +4,7 @@ full = 0
 incremental = 0
 not_backed = 2  # int(input("Not backed: "))
 work_rate = 1  # int(input("Work rate: "))
-storage_price = work_rate/4000
+storage_price = work_rate/300
 
 
 class Backup:
@@ -80,14 +80,14 @@ def storage_cost(days_from_first_backup):
     full_backups_count = np.modf(x / full.interval)[1] + 1
     full_storage_cost = 0
     for i in range(int(full_backups_count)):
-        full_storage_cost += storage_price*(x - i*full.interval)*(i*full.interval + not_backed)
+        full_storage_cost += storage_price*(x - i*full.interval)*work_rate*(i*full.interval + not_backed)
 
     incremental_in_cycle = np.modf(full.interval/incremental.interval)[1]-1
     cycle = 0
     for i in range(1, int(incremental_in_cycle)):
-        cycle += incremental.interval*storage_price*(full.interval-i*incremental.interval)
+        cycle += incremental.interval*work_rate*storage_price*(full.interval-i*incremental.interval)
     incremental_storage_cost = 0
     for k in range(1, int(full_backups_count)):
-        incremental_storage_cost += cycle + storage_price*(k-1)*incremental_in_cycle*full.interval
+        incremental_storage_cost += cycle + storage_price*(k-1)*full.interval*(full.interval-incremental.interval)*work_rate
 
     return full_storage_cost + incremental_storage_cost

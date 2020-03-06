@@ -4,28 +4,6 @@ from mpl_toolkits.mplot3d import Axes3D
 import Mathematical_function_backups as math
 import numpy as np
 
-#
-# sim = md.Simulation(200, 690, 130, 100, 0, 3)
-# exp_data = sim.demand_exp_data()
-# math_data = sim.plot_demand_math()
-# fig, ax = plt.subplots()
-# ax.plot(math_data[0], math_data[1])
-# ax.scatter(exp_data[0], exp_data[1])
-# plt.show()
-# ransom_value = int(input("Price: "))
-# str1 = input("Acceptable Error: ")
-# error_boundary = float(str1)
-# error_boundary = error_boundary/1000
-
-# b = 1
-# while b:
-#     error_percentage = md.error_percent(sim, ransom_value)
-#     if error_percentage < error_boundary:
-#         b = 0
-#         print("Minimal sample size: ", sim.ppl_sample_size)
-#     sim.ppl_sample_size += 20
-
-
 # Plotting mathematical expectation
 #
 math.setting_the_constants()
@@ -55,38 +33,30 @@ z_data = []
 #     plt.savefig(name)
 
 # Data for the 3D plot
+math.storage_price = math.work_rate/(1000)
 means = {}
 x = []
 y = []
 z = []
-for j in range(3, 18):
+best_incremental = {}
+for j in range(1, 29):
     incremental_interval = {}
     math.full.interval = j+1
     for i in range(1, j+1):
-        math.incremental.interval = i+1
+        math.incremental.interval = i
         prices = []
-        for k in range(1, 200):
-            prices.append(math.expected_recovery_price(k) + math.storage_cost(k))
-        incremental_interval[i+1] = np.mean(prices)
+        # for k in range(1, 90):
+        #     prices.append(math.expected_recovery_price(k) + math.storage_cost(k))
+        incremental_interval[i] = math.expected_recovery_price(90) + math.storage_cost(90)  # np.sum(prices)
         x.append(j+1)
         y.append(i+1)
-        z.append(np.mean(prices))
+        z.append(incremental_interval[i])
     means[j+1] = incremental_interval
-    print("full interval:", j+1, min(incremental_interval.items(), key=lambda x: x[1]))
+    best_incremental[j+1] = min(incremental_interval.items(), key=lambda x: x[1])
+    print("best incremental", j+1, "  ", best_incremental[j+1])
+best_overall = min(best_incremental.items(), key=lambda x: x[1][1])
+print("c=", math.work_rate/math.storage_price, best_overall)
 
-
-# Single complete plot
-time = []
-pr = []
-math.full.interval = 12
-math.incremental.interval = 3
-for k in range(1, 100):
-    time.append(k)
-    pr.append(math.expected_recovery_price(k) + math.storage_cost(k))
-fig1, ax = plt.subplots()
-ax.plot(time, pr)
-ax.set_xlabel("Time")
-ax.set_ylabel("Price")
 
 # 3D plot
 fig = plt.figure()

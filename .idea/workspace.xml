@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Costs.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mathematical_function_backups.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mathematical_function_backups.py" afterDir="false" />
     </list>
@@ -464,34 +465,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fixed some colors." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575579112918">
+    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580849361863">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1575579112918" />
+    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1580849361863" />
     <state x="54" y="24" key="CommitChangelistDialog2" timestamp="1576009765436">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="54" y="24" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1576009765436" />
-    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1579624694927">
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1580849509853">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1579624694927" />
-    <state width="1579" height="192" key="GridCell.Tab.0.bottom" timestamp="1579856976303">
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1580849509853" />
+    <state width="1579" height="188" key="GridCell.Tab.0.bottom" timestamp="1583489985777">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="192" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579856976303" />
-    <state width="1579" height="192" key="GridCell.Tab.0.center" timestamp="1579856976303">
+    <state width="1579" height="188" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1583489985777" />
+    <state width="1579" height="188" key="GridCell.Tab.0.center" timestamp="1583489985777">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="192" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1579856976303" />
-    <state width="1579" height="192" key="GridCell.Tab.0.left" timestamp="1579856976303">
+    <state width="1579" height="188" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1583489985777" />
+    <state width="1579" height="188" key="GridCell.Tab.0.left" timestamp="1583489985777">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="192" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1579856976303" />
-    <state width="1579" height="192" key="GridCell.Tab.0.right" timestamp="1579856976303">
+    <state width="1579" height="188" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1583489985777" />
+    <state width="1579" height="188" key="GridCell.Tab.0.right" timestamp="1583489985777">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="192" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1579856976303" />
+    <state width="1579" height="188" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1583489985777" />
     <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1579812020276">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

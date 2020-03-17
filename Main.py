@@ -6,6 +6,8 @@ import numpy as np
 
 # Plotting mathematical expectation
 #
+output = open("Paper_stuff_1.txt", "w")
+output.write("\hline" + '\n' + "Constant & Full Interval & Incremental interval \hline" + '\n')
 math.setting_the_constants()
 x_data = []
 y_data = []
@@ -33,30 +35,30 @@ z_data = []
 #     plt.savefig(name)
 
 # Data for the 3D plot
-math.storage_price = math.work_rate/(1000)
 means = {}
 x = []
 y = []
 z = []
 best_incremental = {}
-for j in range(1, 29):
-    incremental_interval = {}
-    math.full.interval = j+1
-    for i in range(1, j+1):
-        math.incremental.interval = i
-        prices = []
-        # for k in range(1, 90):
-        #     prices.append(math.expected_recovery_price(k) + math.storage_cost(k))
-        incremental_interval[i] = math.expected_recovery_price(90) + math.storage_cost(90)  # np.sum(prices)
-        x.append(j+1)
-        y.append(i+1)
-        z.append(incremental_interval[i])
-    means[j+1] = incremental_interval
-    best_incremental[j+1] = min(incremental_interval.items(), key=lambda x: x[1])
-    print("best incremental", j+1, "  ", best_incremental[j+1])
-best_overall = min(best_incremental.items(), key=lambda x: x[1][1])
-print("c=", math.work_rate/math.storage_price, best_overall)
-
+for l in range(1):
+    math.storage_price = math.work_rate / (1000 + 500*l)
+    for j in range(1, 29):
+        incremental_interval = {}
+        math.full.interval = j+1
+        for i in range(1, j+1):
+            math.incremental.interval = i
+            prices = []
+            for k in range(30, 90):
+                prices.append(math.expected_recovery_price(k) + math.storage_cost(k))
+            incremental_interval[i] = np.mean(prices)  # np.sum(prices)
+            x.append(j+1)
+            y.append(i+1)
+            z.append(incremental_interval[i])
+        means[j+1] = incremental_interval
+        best_incremental[j+1] = min(incremental_interval.items(), key=lambda x: x[1])
+    best_overall = min(best_incremental.items(), key=lambda x: x[1][1])
+    print("c=", math.work_rate/math.storage_price, best_overall)
+    output.write(str(1000 + 500*l) + " & " + str(best_overall[0]) + " & " + str(best_overall[1][0]) + chr(92)*2 + " " + chr(92) + "hline" '\n')
 
 # 3D plot
 fig = plt.figure()

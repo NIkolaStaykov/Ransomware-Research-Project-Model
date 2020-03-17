@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Paper_stuff.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Paper_stuff_1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Costs.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mathematical_function_backups.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mathematical_function_backups.py" afterDir="false" />
     </list>
@@ -40,7 +41,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="C:/Py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -133,10 +134,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Model" />
-      <item itemvalue="Python.Slider_plot_0" />
       <item itemvalue="Python.Backup_cost" />
       <item itemvalue="Python.Mathematical_function_backups" />
+      <item itemvalue="Python.Model" />
+      <item itemvalue="Python.Slider_plot_0" />
     </list>
     <recent_temporary>
       <list>
@@ -477,22 +478,26 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1580849509853" />
-    <state width="1579" height="188" key="GridCell.Tab.0.bottom" timestamp="1583489985777">
+    <state width="1579" height="188" key="GridCell.Tab.0.bottom" timestamp="1584053102288">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="188" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1583489985777" />
-    <state width="1579" height="188" key="GridCell.Tab.0.center" timestamp="1583489985777">
+    <state width="1579" height="188" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1584053102288" />
+    <state width="1579" height="188" key="GridCell.Tab.0.center" timestamp="1584053102288">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="188" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1583489985777" />
-    <state width="1579" height="188" key="GridCell.Tab.0.left" timestamp="1583489985777">
+    <state width="1579" height="188" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1584053102288" />
+    <state width="1579" height="188" key="GridCell.Tab.0.left" timestamp="1584053102288">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="188" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1583489985777" />
-    <state width="1579" height="188" key="GridCell.Tab.0.right" timestamp="1583489985777">
+    <state width="1579" height="188" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1584053102288" />
+    <state width="1579" height="188" key="GridCell.Tab.0.right" timestamp="1584053102288">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="188" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1583489985777" />
+    <state width="1579" height="188" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1584053102288" />
+    <state x="301" y="72" key="SettingsEditor" timestamp="1584093710148">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1584093710148" />
     <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1579812020276">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

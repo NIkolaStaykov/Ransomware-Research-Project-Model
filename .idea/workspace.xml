@@ -4,13 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Paper_stuff.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Paper_stuff_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mathematical_function_backups.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mathematical_function_backups.py" afterDir="false" />
-    </list>
+    <list default="true" id="eb49c864-d90e-4013-9e94-4a605b1fe4e7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +35,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="C:/Py" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -134,10 +128,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Backup_cost" />
-      <item itemvalue="Python.Mathematical_function_backups" />
       <item itemvalue="Python.Model" />
       <item itemvalue="Python.Slider_plot_0" />
+      <item itemvalue="Python.Backup_cost" />
+      <item itemvalue="Python.Mathematical_function_backups" />
     </list>
     <recent_temporary>
       <list>
@@ -494,10 +488,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1579" height="188" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1584053102288" />
-    <state x="301" y="72" key="SettingsEditor" timestamp="1584093710148">
+    <state x="301" y="72" key="SettingsEditor" timestamp="1584442166326">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1584093710148" />
+    <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1584442166326" />
     <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1579812020276">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
